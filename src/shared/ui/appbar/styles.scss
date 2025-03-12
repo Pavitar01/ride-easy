@@ -1,0 +1,11 @@
+.app-bar-wrapper {
+  background-color: var(--global-color-primary) !important;
+  .container {
+    .tool-bar {
+      background-color: var(--global-color-primary) !important;
+      color: var(--global-color-secondary) !important;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
