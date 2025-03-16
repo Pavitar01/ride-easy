@@ -1,0 +1,13 @@
+#base-button {
+  color: var(--global-color-primary);
+  background-color: var(--global-color-accent);
+  font-size: var(--global-medium-font-size);
+  padding: 10px 38px;
+  text-transform: none;
+  font-weight: 700;
+  border-radius: 6px;
+  
+  &:hover {
+    background-color: #f0ba33;
+  }
+}

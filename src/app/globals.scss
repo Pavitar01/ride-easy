@@ -2,10 +2,17 @@
   --global-color-primary: #fafafb;
   --global-color-accent: #fcc233;
   --global-color-secondary: #26273c;
-  --global-colo-text: #7b7e99;
+  --global-color-text: #7b7e99;
+  --global-font-caveat: "cavet", sans-serif !important;
+  --global-font-kumbh: "kumbh sans", sans-serif !important;
+  --global-large-font-size: 24px !important;
+  --global-regular-font-size: 16px !important;
+  --global-medium-font-size: 15px !important;
+  --global-small-font-size: 12px !important;
 }
+
 *{
   padding: 0;
   margin: 0;
-  font-family: "kumbh sans", sans-serif;
+  font-family: var(--global-font-kumbh);
 }

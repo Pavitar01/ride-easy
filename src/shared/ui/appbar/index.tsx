@@ -2,9 +2,8 @@
 
 import { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
-import TwoWheeler from '@mui/icons-material/TwoWheeler'
+import TwoWheeler from '@mui/icons-material/TwoWheelerOutlined'
 import AppBar from '@mui/material/AppBar'
-import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
@@ -12,11 +11,12 @@ import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import Toolbar from '@mui/material/Toolbar'
-import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 import { AppName } from '@/shared/constants'
 import actionLinks from './action-links'
+import BaseButton from '../base-button'
 import './styles.scss'
+import AppLogo from '../logo'
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -44,20 +44,13 @@ export const Header = () => {
       <Container maxWidth="lg" className="container">
         <Toolbar className="tool-bar" disableGutters>
           <Box display="flex" alignItems="center">
-            <TwoWheeler sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+            <AppLogo sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,fontSize:"34px !important" }} />
             <Typography
               variant="h6"
               noWrap
               component="a"
               href="#app-bar-with-responsive-menu"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                textDecoration: 'none',
-              }}
+              className="app-name-title"
             >
               {AppName}
             </Typography>
@@ -97,7 +90,7 @@ export const Header = () => {
               ))}
             </Menu>
           </Box>
-          <TwoWheeler sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AppLogo sx={{ display: { xs: 'flex', md: 'none' } }} />
           <Typography
             variant="h5"
             noWrap
@@ -117,26 +110,18 @@ export const Header = () => {
           </Typography>
 
           <Box display="flex" gap={10}>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap:4 }}>
               {actionLinks.map((page) => (
                 <Button
+                  id="action-button"
                   key={page.path}
                   onClick={handleCloseNavMenu}
-                  sx={{
-                    my: 2,
-                    color: 'var(--global-color-secondary)',
-                    display: 'block',
-                  }}
                 >
                   {page.name}
                 </Button>
               ))}
             </Box>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
+            <BaseButton sx={{ display: { xs: 'none', md: 'flex' }}}>Rent now</BaseButton>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
