@@ -14,17 +14,17 @@
   margin-right: 2rem;
   font-size: var(--global-large-font-size) !important;
   line-height: 28.9px !important;
-  display: none;  
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   text-decoration: none;
   color:var(--global-color-secondary) !important;
   margin-left: 5px;
-
-  @media (min-width: 768px) {
-    display: flex;
-  }
+  align-items: center;
 }
 
+.logo-wrapper{
+  display: flex;
+  flex: 1;
+}
 #action-button{
   font-size: 14px !important;
   font-weight: 500 !important;

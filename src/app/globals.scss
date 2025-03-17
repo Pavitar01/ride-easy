@@ -3,12 +3,19 @@
   --global-color-accent: #fcc233;
   --global-color-secondary: #26273c;
   --global-color-text: #7b7e99;
-  --global-font-caveat: "cavet", sans-serif !important;
+  --global-font-caveat: "caveat", sans-serif !important;
   --global-font-kumbh: "kumbh sans", sans-serif !important;
-  --global-large-font-size: 24px !important;
-  --global-regular-font-size: 16px !important;
+  --global-xxxl-font-size: 72px !important;
+  --global-xxl-font-size: 56px !important;
+  --global-large-font-size: 26px !important;
+  --global-regular-font-size: 18px !important;
   --global-medium-font-size: 15px !important;
   --global-small-font-size: 12px !important;
+  --global-bold-font: 700 !important;
+  --global-semi-bold: 500 !important;
+  --global-regular-font: 400 !important;
+  --global-medium-bold: 600 !important;
+  --global-line-height:1.2em
 }
 
 *{

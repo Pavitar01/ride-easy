@@ -1,13 +1,12 @@
-import TwoWheeler from '@mui/icons-material/TwoWheelerOutlined'
-import { Box } from '@mui/material'
-import "./styles.scss"
+import Logo from "@/assets/app-logo.svg";
+import { Box } from "@mui/material";
 
-const AppLogo = ({ sx }: {
-  sx?: object
-}) => {
+const AppLogo = ({ sx }: { sx?: object }) => {
   return (
-    <TwoWheeler sx={{ ...sx }} />
-  )
-}
+    <Box sx={{ width: "100px", height: "50px", ...sx }}>
+      <Logo width="100%" height="100%" />
+    </Box>
+  );
+};
 
-export default AppLogo
+export default AppLogo;
