@@ -21,7 +21,6 @@
       }
       .hero-section-heading{
         font-family: var(--global-font-kumbh);
-        font-size: var(--global-xxxl-font-size);
         color:var(--global-color-secondary);
         font-weight: var(--global-bold-font);
         line-height: var(--global-line-height);
@@ -29,7 +28,6 @@
       .hero-section-description{
         margin-top: 10px;
         font-family: var(--global-font-kumbh);
-        font-size: var(--global-regular-font-size);
         color:var(--global-color-text);
         font-weight: var(--global-regular-font);
         .highlight{
@@ -39,9 +37,24 @@
     }
     .right-section {
       flex: 1;
-      padding: 10px;
-      padding-top: 50px;
+      padding-top: 7%;
+      position: relative;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      .rider-image{
+        border-radius: 14px;
+        position: absolute;
+        z-index: 1;
+      }
+      .circle-image{
+        top: 0;
+        right:-5%;
+        position: absolute;
+        @media screen and (max-width: 1195px) {
+          left: -8%;
+        }
+      }
     }
   }
 }

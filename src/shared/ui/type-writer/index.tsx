@@ -1,4 +1,5 @@
 "use client";
+
 import { TypeAnimation } from "react-type-animation";
 
 interface TypeWriterProps {
@@ -19,7 +20,6 @@ export const TypeWriter = ({ textList }: TypeWriterProps) => {
       cursor={true}
       repeat={Infinity}
       style={{
-        fontSize: "var(--global-xxxl-font-size)",
         display: "inline-block",
       }}
     />

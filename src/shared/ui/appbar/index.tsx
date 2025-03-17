@@ -102,7 +102,7 @@ export const Header = () => {
                   {page.name}
                 </Button>
               ))}
-            </Box>
+            </Box>  
             <BaseButton sx={{ display: { xs: "none", md: "flex" } }}>
               Rent now
             </BaseButton>

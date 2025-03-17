@@ -2,6 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   experimental: {
+    appDir: true,
     turbo: {
       rules: {
         "*.svg": {
