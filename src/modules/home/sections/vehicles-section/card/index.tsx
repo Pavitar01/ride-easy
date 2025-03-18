@@ -17,7 +17,7 @@ const VehicleCard = ({ title, price, image, features }: VehicleCardProps) => {
     return (
         <Box className="vehicle-card-wrapper">
             <Box className="vehicle-image-container">
-                <Image src={""} alt={`${title}-image`} fill />
+                <Image src={"https://eamzn.in/wp-content/uploads/2023/05/2022-Honda-Activa-6g-Copper-Color-Matte-Magnificent-Copper-Metallic-jpg.webp"} alt={`${title}-image`} height={250} width={300} />
             </Box>
             <Box className="vehicle-details">
                 <Typography className="vehicle-name" component="p">{title}</Typography>
@@ -35,7 +35,7 @@ const VehicleCard = ({ title, price, image, features }: VehicleCardProps) => {
                     <Typography className="vehicle-passenger" component="p">{features.passenger}</Typography>
                 </Box>
             </Box>
-                <BaseButton sx={{ width: "100%" }}>Book Now</BaseButton>
+            <BaseButton sx={{ width: "100%",marginTop:"20px" }}>Book Now</BaseButton>
         </Box>
     )
 }

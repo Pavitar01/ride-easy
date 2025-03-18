@@ -7,7 +7,7 @@ interface BaseButtonProps extends ButtonProps {
 
 const BaseButton: React.FC<BaseButtonProps> = ({ children, ...props }) => {
     return (
-        <Button {...props} id="base-button" variant="contained" disableElevation>
+        <Button {...props} id="base-button" variant={props.variant ? props.variant : "contained"} disableElevation>
             {children}
         </Button>
     );

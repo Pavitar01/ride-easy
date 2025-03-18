@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "eamzn.in",
+      },
+    ],
+  },
   reactStrictMode: true,
   experimental: {
     turbo: {
@@ -12,6 +20,7 @@ module.exports = {
     },
   },
   webpack(config) {
+    
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
