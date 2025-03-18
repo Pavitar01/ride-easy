@@ -1,0 +1,38 @@
+.facility-section {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  .facility-section-title {
+    font-family: var(--global-font-caveat);
+    font-size: var(--global-large-font-size);
+    color: var(--global-color-accent);
+    font-weight: var(--global-bold-font);
+  }
+  .facility-section-heading {
+    width: 543px;
+    text-align: center;
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-secondary);
+    font-weight: var(--global-medium-bold-font);
+    line-height: var(--global-line-height);
+    @media screen and (max-width: 893px) {
+      width: 100% !important;
+    }
+  }
+  .container {
+    margin-top: 50px;
+    display: flex;
+    .facility-cards{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      gap: 30px;
+      justify-content: center !important;
+    }
+  }
+}

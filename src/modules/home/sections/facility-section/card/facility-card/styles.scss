@@ -1,0 +1,43 @@
+.facility-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  .facility-card-icon {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--global-color-accent-alt);
+  }
+  .facility-card-title {
+    margin-top: 10px;
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-secondary);
+    font-weight: var(--global-bold-font);
+  }
+  .facility-card-description {
+    display: flex;
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-text);
+    font-weight: var(--global-regular-font);
+    font-size: var(--global-regular-font-size-alt);
+    width: 248px;
+
+    @media screen and (max-width: 893px) {
+      width: 100% !important;
+    }
+  }
+}
+
+#icon {
+  font-size: 40px;
+  color: var(--global-color-accent);
+  @media screen and (max-width: 893px) {
+    font-size: 40px;
+  }
+}
