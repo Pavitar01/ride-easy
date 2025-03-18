@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from "@mui/material"
+import VehicleCard from "./card"
 import "./styles.scss"
 
 const VehiclesSection = () => {
@@ -17,6 +18,18 @@ const VehiclesSection = () => {
                 }}>
                     Discount vehicles
                 </Typography>
+                <Box className="vehicles">
+                    <VehicleCard
+                        features={{
+                            fuel: "petrol",
+                            transmission: "manual",
+                            passenger: 2
+                        }}
+                        title="activa"
+                        price={1000}
+                        image={""}
+                    />
+                </Box>
             </Container>
         </Box>
     )
