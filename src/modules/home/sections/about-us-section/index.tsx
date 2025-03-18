@@ -8,7 +8,7 @@ const AboutUsSection = () => {
   return <Box className="about-us-section">
     <Container maxWidth="lg" className="container">
       <Box className="about-us-left-section">
-        <Image src={RiderCouples2} alt="about-us-image" height={450} width={400} />
+        <Image src={RiderCouples2} alt="about-us-image" height={550} width={500} />
       </Box>
       <Box className="about-us-right-section">
         <Typography component="h1" className="about-us-title">About RideEasy</Typography>
