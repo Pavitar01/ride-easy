@@ -1,0 +1,24 @@
+.vehicles-section{
+    .container{
+        width: 100%;
+        @media screen and (max-width: 893px) {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            
+        }
+        .vehicles-section-title{
+            font-family: var(--global-font-caveat);
+            font-size: var(--global-large-font-size);
+            color: var(--global-color-accent);
+            font-weight: var(--global-bold-font);
+        }
+        .vehicles-section-heading{
+            text-align: left;
+            font-family: var(--global-font-kumbh);
+            color: var(--global-color-secondary);
+            font-weight: var(--global-medium-bold-font);
+            line-height: var(--global-line-height);
+        }
+    }
+}

@@ -1,8 +1,8 @@
 import { Box, Container, Typography } from '@mui/material'
-import "./styles.scss"
-import { RiderCouples2 } from '../../assets'
 import Image from 'next/image'
+import { RiderCouples2 } from '../../assets'
 import BaseButton from '@/shared/ui/base-button'
+import "./styles.scss"
 
 const AboutUsSection = () => {
   return <Box className="about-us-section">
