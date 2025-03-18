@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 
 const AppLogo = ({ sx }: { sx?: object }) => {
   return (
-    <Box sx={{ width: "100px", height: "50px", ...sx }}>
+    <Box sx={{ width: "100px", height: "50px",padding: "10px", ...sx }}>
       <Logo width="100%" height="100%" />
     </Box>
   );

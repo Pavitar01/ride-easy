@@ -12,11 +12,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { AppName } from "@/shared/constants";
 import actionLinks from "./action-links";
 import BaseButton from "../base-button";
-import "./styles.scss";
 import AppLogo from "../logo";
+import "./styles.scss";
+import { backdropClasses } from "@mui/material";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -27,10 +27,6 @@ export const Header = () => {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -47,7 +43,6 @@ export const Header = () => {
             <AppLogo
               sx={{
                 display: { xs: "none", md: "flex" },
-                mr: 1,
               }}
             />
           </Box>
@@ -102,7 +97,7 @@ export const Header = () => {
                   {page.name}
                 </Button>
               ))}
-            </Box>  
+            </Box>
             <BaseButton sx={{ display: { xs: "none", md: "flex" } }}>
               Rent now
             </BaseButton>

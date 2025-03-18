@@ -1,36 +1,39 @@
 .hero-section {
-  height: calc(100vh - 64px);
+  height: calc(65vh);
   background-color: var(--global-color-primary) !important;
   display: flex;
   .hero-section-container {
     display: flex;
-    height: 100%;
     .left-section {
-      flex:1;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap:14px;
+      gap: 14px;
       padding: 10px;
       padding-top: 10%;
       box-sizing: border-box;
+      position: relative;
       .hero-section-title {
         font-family: var(--global-font-caveat);
         font-size: var(--global-large-font-size);
-        color:var(--global-color-accent);
+        color: var(--global-color-accent);
         font-weight: var(--global-bold-font);
       }
-      .hero-section-heading{
+      .hero-section-heading {
         font-family: var(--global-font-kumbh);
-        color:var(--global-color-secondary);
+        color: var(--global-color-secondary);
         font-weight: var(--global-bold-font);
         line-height: var(--global-line-height);
+        @media screen and (max-width: 893px) {
+          width: 323px !important;
+        }
       }
-      .hero-section-description{
+      .hero-section-description {
         margin-top: 10px;
         font-family: var(--global-font-kumbh);
-        color:var(--global-color-text);
+        color: var(--global-color-text);
         font-weight: var(--global-regular-font);
-        .highlight{
+        .highlight {
           font-weight: var(--global-semi-bold-font) !important;
         }
       }
@@ -42,14 +45,14 @@
       box-sizing: border-box;
       display: flex;
       justify-content: center;
-      .rider-image{
+      .rider-image {
         border-radius: 14px;
         position: absolute;
         z-index: 1;
       }
-      .circle-image{
+      .circle-image {
         top: 0;
-        right:-5%;
+        right: -5%;
         position: absolute;
         @media screen and (max-width: 1195px) {
           left: -8%;
