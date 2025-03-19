@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Box, Container, Typography } from '@mui/material'
 import BaseButton from '@/shared/ui/base-button'
-import { Circle, RiderCouples2 } from '../../assets'
+import { Circle, Rider, Rider2, RiderCouple3, RiderCouples2, RiderCoupleXL } from '../../assets'
 import './styles.scss'
 
 const AboutUsSection = () => {
@@ -9,12 +9,16 @@ const AboutUsSection = () => {
     <Box className="about-us-section">
       <Container maxWidth="lg" className="container">
         <Box className="about-us-left-section">
-          <Image
-            src={RiderCouples2}
-            alt="about-us-image"
-            height={550}
-            width={500}
-          />
+          <Box className="image-container">
+            <Image
+              src={Rider2}
+              alt="about-us-image"
+              quality={100}
+              width={500} 
+              height={500}
+              style={{ objectFit: "cover" }} 
+            />
+          </Box>
           <Image
             src={Circle}
             alt="circle-image"

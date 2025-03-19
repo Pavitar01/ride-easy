@@ -47,11 +47,26 @@
       height: 100%;
       position: relative;
       display: flex;
-      .about-us-image {
-        position: absolute;
-        z-index: 1;
-        border-radius: 20px;
+      .image-container {
+        width: 539px;
+        height: 500px;
+        position: relative; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        .about-us-image {
+          border-radius: 20px !important;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: contain;
+          position: relative;
+          background-color: red;
+          z-index: 1; 
+        }
       }
+      
+
       .circle-image {
         left: -100px;
         z-index: -1;
