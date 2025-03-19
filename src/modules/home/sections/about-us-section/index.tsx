@@ -12,6 +12,7 @@ const AboutUsSection = () => {
           <Box className="image-container">
             <Image
               src={Rider2}
+              className='about-us-image'
               alt="about-us-image"
               quality={100}
               width={500} 
