@@ -45,7 +45,7 @@ const Input = ({ title, type }: InputProps) => {
 
   return (
     <Box className="input-wrapper">
-      <Typography>{title}</Typography>
+      <Typography fontFamily="inherit">{title}</Typography>
       <Box>
         {type === 'Select' ? (
           <FormControl sx={{ width: { xs: '100%', md: '180px' }, mt: '8px' }}>
@@ -54,6 +54,7 @@ const Input = ({ title, type }: InputProps) => {
               id="demo-simple-select"
               value={age}
               onChange={handleChange}
+              sx={{ fontFamily: 'inherit' }}
               displayEmpty
             >
               <MenuItem value="" disabled>
@@ -65,11 +66,14 @@ const Input = ({ title, type }: InputProps) => {
           </FormControl>
         ) : (
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker']}>
+            <DemoContainer
+              sx={{ fontFamily: 'inherit' }}
+              components={['DatePicker']}
+            >
               <DatePicker
                 value={value}
                 onChange={(newValue) => setValue(newValue)}
-                sx={{ width: { xs: '100%', md: '180px' }, mt: '8px' }}
+                sx={{ width: { xs: '100%', md: '180px' }, mt: '8px',fontFamily: 'inherit' }}
               />
             </DemoContainer>
           </LocalizationProvider>

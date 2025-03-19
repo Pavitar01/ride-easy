@@ -45,9 +45,21 @@
     .about-us-left-section {
       flex: 1;
       height: 100%;
+      position: relative;
       display: flex;
-      img {
+      .about-us-image {
+        position: absolute;
+        z-index: 1;
         border-radius: 20px;
+      }
+      .circle-image {
+        left: -100px;
+        z-index: -1;
+        bottom: -80px;
+        position: absolute;
+        @media screen and (max-width: 1195px) {
+          left: -8%;
+        }
       }
       @media screen and (max-width: 893px) {
         display: none;

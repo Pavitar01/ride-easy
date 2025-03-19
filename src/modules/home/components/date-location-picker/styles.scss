@@ -1,5 +1,4 @@
 .date-location-picker {
-  font-family: var(--global-font-kumbh);
   padding: 20px !important;
   width: max-content;
   display: flex;
@@ -12,6 +11,9 @@
   flex-direction: row;
   box-sizing: border-box;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  .input-wrapper{
+    font-family: var(--global-font-kumbh) !important;
+  }
 
   @media screen and (max-width: 893px) {
     bottom: -15px;
