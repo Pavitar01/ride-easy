@@ -11,8 +11,8 @@ import {
   useTheme,
 } from '@mui/material'
 import VehicleCard from './card'
-import './styles.scss'
 import { vehicles } from './vehicles'
+import './styles.scss'
 
 interface AllVehiclesButtonProps {
   isMobile: boolean

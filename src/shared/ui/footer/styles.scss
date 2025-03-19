@@ -15,7 +15,7 @@
     flex-wrap: wrap;
     .footer-column {
       flex: 1;
-      min-width: 200px;
+      min-width: 280px;
       margin-bottom: 100px;
       .footer-column-title {
         margin-bottom: 10px;
@@ -63,7 +63,7 @@
         flex-direction: column;
         gap: 10px;
         input{
-          width: 92%;
+          width: 95%;
           padding: 10px;
           border-radius: 10px;
           border: 1px solid var(--global-color-text);
