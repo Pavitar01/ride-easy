@@ -3,7 +3,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     gap: 14px;
     @media screen and (max-width: 893px) {
       display: flex;
@@ -30,6 +30,7 @@
       }
     }
     .vehicles {
+      margin-top: 50px;
       margin-bottom: 50px;
       width: 100%;
       display: flex;

@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Box } from '@mui/material'
 import AboutUsSection from '@/modules/home/sections/about-us-section'
+import CallUsSection from '@/modules/home/sections/call-us-section'
 import FacilitySection from '@/modules/home/sections/facility-section'
 import HeroSection from '@/modules/home/sections/hero-section'
 import VehiclesSection from '@/modules/home/sections/vehicles-section'
@@ -22,6 +23,7 @@ const ProtectedLayout = () => {
       <FacilitySection />
       <AboutUsSection />
       <VehiclesSection />
+      <CallUsSection />
       <Footer />
     </Box>
   )

@@ -36,6 +36,7 @@ const Footer = () => {
             )}
           </div>
         ))}
+        <Box className="divider"/>
         <Box className="footer-copyright">
           <Typography className="footer-copyright-text" component="p">
             © 2025 RideEasy. All rights reserved.
