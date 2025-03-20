@@ -31,7 +31,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${caveat.variable} ${kumbh.variable}`}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          
+          {children}
+          
+          </StoreProvider>
       </body>
     </html>
   )

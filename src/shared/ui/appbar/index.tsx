@@ -7,30 +7,29 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import actionLinks from "./action-links";
+import actionLinks, { ActionLink } from "./action-links";
 import BaseButton from "../base-button";
 import AppLogo from "../logo";
+import { useRouter } from "next/navigation";
+import TemporaryDrawer from "../drawer";
 import "./styles.scss";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export const Header = () => {
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const { push } = useRouter()
+  const [isOpen,setIsOpen]=useState(false)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const closeDrawer=()=>{
+    setIsOpen(false)
+  }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const openDrawer=()=>{
+    setIsOpen(true)
+  }
+  const handleCloseNavMenu = (page: ActionLink) => {
+    push(page.path)
   };
 
   return (
@@ -52,34 +51,11 @@ export const Header = () => {
               size="large"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={openDrawer}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
-            >
-              {actionLinks.map((page) => (
-                <MenuItem key={page.path} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {page.name}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <TemporaryDrawer isOpen={isOpen} onClose={closeDrawer} />
           </Box>
 
           <Box display="flex" gap={10}>
@@ -90,7 +66,7 @@ export const Header = () => {
                 <Button
                   id="action-button"
                   key={page.path}
-                  onClick={handleCloseNavMenu}
+                  onClick={() => handleCloseNavMenu(page)}
                 >
                   {page.name}
                 </Button>
@@ -99,30 +75,6 @@ export const Header = () => {
             <BaseButton sx={{ display: { xs: "none", md: "flex" } }}>
               Rent now
             </BaseButton>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: "center" }}>
-                    {setting}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

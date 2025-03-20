@@ -1,0 +1,22 @@
+.video-player {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  .video {
+    width: 343px;
+    height: 200px;
+    border-radius: 20px;
+  }
+
+  .play-pause {
+    position: absolute;
+    z-index: 12;
+    left: 50%;
+    top: 50%;
+    font-size: 34px;
+    transform: translate(-50%, -50%);
+    color: var(--global-color-secondary);
+    padding: 5px;
+    background-color: var(--global-color-primary);
+  }
+}

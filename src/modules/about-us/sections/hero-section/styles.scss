@@ -1,0 +1,45 @@
+.about-us-hero-section {
+  height: calc(50vh);
+  display: flex;
+
+  .hero-section-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .hero-section-container {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.719);
+        z-index: -1;
+      }
+      .hero-section-heading {
+        font-family: var(--global-font-kumbh);
+        color: var(--global-color-primary);
+        font-weight: var(--global-bold-font);
+        line-height: var(--global-line-height);
+      }
+      .hero-section-description {
+        text-align: center;
+        margin-top: 10px;
+        font-family: var(--global-font-kumbh);
+        color: var(--global-color-primary);
+        width: 72%;
+        font-weight: var(--global-regular-font);
+        @media screen and (max-width: 893px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

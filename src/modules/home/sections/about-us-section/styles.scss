@@ -26,6 +26,9 @@
         color: var(--global-color-secondary);
         font-weight: var(--global-medium-bold-font);
         line-height: var(--global-line-height);
+        @media screen and (max-width: 1195px) {
+          width: 100%;
+        }
         @media screen and (max-width: 893px) {
           text-align: center;
           width: 100% !important;
@@ -36,6 +39,9 @@
         font-family: var(--global-font-kumbh);
         color: var(--global-color-text);
         font-weight: var(--global-regular-font);
+        @media screen and (max-width: 1195px) {
+          width: 100%;
+        }
         @media screen and (max-width: 893px) {
           text-align: center;
           width: 100% !important;
