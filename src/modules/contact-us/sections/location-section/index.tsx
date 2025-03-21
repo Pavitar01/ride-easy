@@ -2,6 +2,7 @@
 
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import { useEffect, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import DirectionCard from './card/direction-card'
 
@@ -41,36 +42,50 @@ const openGoogleMaps = (lat: number, lng: number) => {
 }
 
 const IndiaMap = () => {
-  return (
-    <MapContainer
-      minZoom={5}
-      center={[30.3165, 78.0322]}
-      zoom={10}
-      maxBounds={[
-        [6.746, 68.162],
-        [35.675, 97.395],
-      ]}
-      maxBoundsViscosity={1.0}
-      style={{ height: '500px', width: '100%' }}
-    >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+  const mapRef = useRef<L.Map | null>(null)
 
-      {locations.map(({ name, coordinates, rating, description }) => (
-        <Marker key={name} position={coordinates} icon={markerIcon}>
-          <Popup className="direction-card">
-            <DirectionCard
-              openGoogleMaps={openGoogleMaps}
-              details={{
-                name,
-                coordinates,
-                rating,
-                description,
-              }}
-            />
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+  useEffect(() => {
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.off()
+        mapRef.current.remove()
+        mapRef.current = null
+      }
+    }
+  }, [])
+
+  return (
+    <div style={{ height: '500px', width: '100%' }}>
+      <MapContainer
+        minZoom={5}
+        center={[30.3165, 78.0322]}
+        zoom={10}
+        maxBounds={[
+          [6.746, 68.162],
+          [35.675, 97.395],
+        ]}
+        maxBoundsViscosity={1.0}
+        style={{ height: '100%', width: '100%' }}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+        {locations.map(({ name, coordinates, rating, description }) => (
+          <Marker key={name} position={coordinates} icon={markerIcon}>
+            <Popup className="direction-card">
+              <DirectionCard
+                openGoogleMaps={openGoogleMaps}
+                details={{
+                  name,
+                  coordinates,
+                  rating,
+                  description,
+                }}
+              />
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   )
 }
 

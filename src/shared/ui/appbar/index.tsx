@@ -1,36 +1,37 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Toolbar from "@mui/material/Toolbar";
-import actionLinks, { ActionLink } from "./action-links";
-import BaseButton from "../base-button";
-import AppLogo from "../logo";
-import { useRouter } from "next/navigation";
-import TemporaryDrawer from "../drawer";
-import "./styles.scss";
-
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import MenuIcon from '@mui/icons-material/Menu'
+import { Typography } from '@mui/material'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container'
+import IconButton from '@mui/material/IconButton'
+import Toolbar from '@mui/material/Toolbar'
+import BaseButton from '../base-button'
+import TemporaryDrawer from '../drawer'
+import AppLogo from '../logo'
+import UnderlineAnimation from '../underline-animation'
+import actionLinks, { ActionLink } from './action-links'
+import './styles.scss'
 
 export const Header = () => {
   const { push } = useRouter()
-  const [isOpen,setIsOpen]=useState(false)
+  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
 
-  const closeDrawer=()=>{
+  const closeDrawer = () => {
     setIsOpen(false)
   }
 
-  const openDrawer=()=>{
+  const openDrawer = () => {
     setIsOpen(true)
   }
   const handleCloseNavMenu = (page: ActionLink) => {
     push(page.path)
-  };
+  }
 
   return (
     <AppBar position="static" className="app-bar-wrapper" elevation={0}>
@@ -39,14 +40,14 @@ export const Header = () => {
           <Box display="flex" alignItems="center">
             <AppLogo
               sx={{
-                display: { xs: "none", md: "flex" },
+                display: { xs: 'none', md: 'flex' },
               }}
             />
           </Box>
           <Box className="logo-wrapper">
-            <AppLogo sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            <AppLogo sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-controls="menu-appbar"
@@ -60,24 +61,24 @@ export const Header = () => {
 
           <Box display="flex" gap={10}>
             <Box
-              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, gap: 4 }}
+              sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 4 }}
             >
               {actionLinks.map((page) => (
-                <Button
-                  id="action-button"
-                  key={page.path}
+                <UnderlineAnimation
                   onClick={() => handleCloseNavMenu(page)}
-                >
-                  {page.name}
-                </Button>
+                  id="action-link"
+                  text={page.name}
+                  key={page.name}
+                  origin="center"
+                />
               ))}
             </Box>
-            <BaseButton sx={{ display: { xs: "none", md: "flex" } }}>
+            <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
               Rent now
             </BaseButton>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-  );
-};
+  )
+}

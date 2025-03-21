@@ -1,8 +1,4 @@
 .direction-card {
-  &:hover {
-    transform: scale(1.05);
-  }
-
   &__name {
     font-weight: var(--global-small-font-size);
     color: #333;

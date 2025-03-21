@@ -25,9 +25,11 @@
   display: flex;
   flex: 1;
 }
-#action-button{
+#action-link{
+  margin-top: 12px;
   font-size: 14px !important;
   font-weight: 500 !important;
+  height: 24px;
   text-decoration: none;
   text-transform: capitalize !important;
   color:var(--global-color-secondary) !important;
