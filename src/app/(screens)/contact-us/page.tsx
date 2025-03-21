@@ -1,13 +1,16 @@
+'use client' 
 import HeroSection from '@/modules/contact-us/sections/hero-sections'
-import LocationSection from '@/modules/contact-us/sections/location-section'
+import dynamic from 'next/dynamic'
 
-const page = () => {
+const LocationSection = dynamic(() => import('@/modules/contact-us/sections/location-section'), { ssr: false })
+
+const Page = () => {
   return (
     <>
       <HeroSection />
-      <LocationSection/>
+      <LocationSection />
     </>
   )
 }
 
-export default page
+export default Page

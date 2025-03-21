@@ -2,8 +2,7 @@
 
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import React from 'react'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import DirectionCard from './card/direction-card'
 
 const markerIcon = new L.Icon({
@@ -14,7 +13,6 @@ const markerIcon = new L.Icon({
   popupAnchor: [1, -34],
 })
 
-// Extended location data with rating and description
 const locations: {
   name: string
   coordinates: [number, number]
@@ -25,13 +23,15 @@ const locations: {
     name: 'Dehradun',
     coordinates: [30.3165, 78.0322],
     rating: 4.5,
-    description: 'A beautiful city known for its picturesque landscapes and schools.',
+    description:
+      'A beautiful city known for its picturesque landscapes and schools.',
   },
   {
     name: 'Mussoorie',
     coordinates: [30.4591, 78.0642],
     rating: 4.7,
-    description: 'A popular hill station with breathtaking views and colonial charm.',
+    description:
+      'A popular hill station with breathtaking views and colonial charm.',
   },
 ]
 
@@ -57,6 +57,7 @@ const IndiaMap = () => {
 
       {locations.map(({ name, coordinates, rating, description }) => (
         <Marker key={name} position={coordinates} icon={markerIcon}>
+          <Popup className="direction-card">
             <DirectionCard
               openGoogleMaps={openGoogleMaps}
               details={{
@@ -66,6 +67,7 @@ const IndiaMap = () => {
                 description,
               }}
             />
+          </Popup>
         </Marker>
       ))}
     </MapContainer>

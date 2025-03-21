@@ -1,4 +1,4 @@
-import { Popup } from 'react-leaflet'
+'use client'
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops'
 import { Box, Typography, IconButton } from '@mui/material'
 import './styles.scss'
@@ -15,8 +15,7 @@ interface DirectionCardProps {
 
 const DirectionCard = ({ details, openGoogleMaps }: DirectionCardProps) => {
   return (
-    <Popup className="direction-card">
-      <Box display="flex">
+      <Box display="flex" className="direction-card">
         <Box className="direction-card__info">
           <Typography variant="h6" className="direction-card__name">
             {details.name}
@@ -46,7 +45,6 @@ const DirectionCard = ({ details, openGoogleMaps }: DirectionCardProps) => {
           </Typography>
         </Box>
       </Box>
-    </Popup>
   )
 }
 
