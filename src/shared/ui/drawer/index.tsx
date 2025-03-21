@@ -1,43 +1,35 @@
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import actionLinks from '../appbar/action-links';
-import { useRouter } from 'next/navigation';
+'use client'
 
+import { usePathname } from 'next/navigation'
+import { Box, Typography, useMediaQuery } from '@mui/material'
+import actionLinks, { ActionLink } from '../appbar/action-links'
+import './styles.scss'
 
 interface DrawerProps {
-    isOpen: boolean;
-    onClose: () => void
+  isOpen: boolean
+  onClose: (path: ActionLink) => void
 }
-export default function TemporaryDrawer({ isOpen, onClose }: DrawerProps) {
-    const { push } = useRouter()
-    const DrawerList = (
-        <Box sx={{ width: 250,height:"100%", bgcolor: "var(--global-color-text)", color: "var(--global-color-primary)" }} role="presentation" onClick={onClose}>
-            <List>
-                {actionLinks.map((action, index) => (
-                    <ListItem key={index} disablePadding>
-                        <ListItemButton color='inherit'>
-                            <ListItemIcon color='inherit'>
-                                {index % 2 === 0 ? <InboxIcon color='inherit'/> : <MailIcon color='inherit'/>}
-                            </ListItemIcon>
-                            <ListItemText primary={action.name} onClick={() => push(action.path)} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
+const Drawer = ({ isOpen, onClose }: DrawerProps) => {
+  const pathname = usePathname()
+  const isMobile = useMediaQuery('(max-width: 893px)')
+  return isMobile && isOpen ? (
+    <Box className="temp-drawer">
+      {actionLinks.map((action) => {
+        const isSelected = action.path === pathname
+        return (
+          <Box
+            key={action.path}
+            className={`temp-drawer__item ${isSelected ? 'active' : ''}`}
+            onClick={() => onClose(action)}
+          >
+            <Typography component="p" id="action-link">
+              {action.name}
+            </Typography>
+          </Box>
+        )
+      })}
+    </Box>
+  ) : null
+}
 
-    return (
-        <Drawer open={isOpen} onClose={onClose} anchor='right'>
-            {DrawerList}
-        </Drawer>
-    );
-}
+export default Drawer

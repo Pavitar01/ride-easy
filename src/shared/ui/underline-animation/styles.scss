@@ -8,16 +8,21 @@
   content: '';
   position: absolute;
   width: 100%;
-  transform: scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
   background-color: var(--global-color-accent);
   transition: transform 0.25s ease-out;
+  transform: scaleX(0);
 }
 
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
+}
+
+.hover-underline-animation.selected::after {
+  transform: scaleX(1);
+  transition: none; 
 }
 
 .hover-underline-animation.left::after {
@@ -25,6 +30,10 @@
 }
 
 .hover-underline-animation.left:hover::after {
+  transform-origin: bottom left;
+}
+
+.hover-underline-animation.left.selected::after {
   transform-origin: bottom left;
 }
 
@@ -36,10 +45,18 @@
   transform-origin: bottom center;
 }
 
+.hover-underline-animation.center.selected::after {
+  transform-origin: bottom center;
+}
+
 .hover-underline-animation.right::after {
   transform-origin: bottom left;
 }
 
 .hover-underline-animation.right:hover::after {
+  transform-origin: bottom right;
+}
+
+.hover-underline-animation.right.selected::after {
   transform-origin: bottom right;
 }

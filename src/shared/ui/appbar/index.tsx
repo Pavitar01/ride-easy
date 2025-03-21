@@ -3,10 +3,9 @@
 import { useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import MenuIcon from '@mui/icons-material/Menu'
-import { Typography } from '@mui/material'
+import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
@@ -19,18 +18,15 @@ import './styles.scss'
 
 export const Header = () => {
   const { push } = useRouter()
-  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
-  const closeDrawer = () => {
-    setIsOpen(false)
+  const toggleDrawer = () => {
+    setIsOpen((prev) => !prev)
   }
-
-  const openDrawer = () => {
-    setIsOpen(true)
-  }
-  const handleCloseNavMenu = (page: ActionLink) => {
+  const handleChooseItem = (page: ActionLink) => {
     push(page.path)
+    setIsOpen(false)
   }
 
   return (
@@ -52,26 +48,37 @@ export const Header = () => {
               size="large"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={openDrawer}
+              onClick={toggleDrawer}
             >
-              <MenuIcon />
+              {!isOpen ? (
+                <MenuIcon />
+              ) : (
+                <MenuOpenIcon
+                  sx={{
+                    color: 'var(--global-color-secondary)',
+                  }}
+                />
+              )}
             </IconButton>
-            <TemporaryDrawer isOpen={isOpen} onClose={closeDrawer} />
           </Box>
 
           <Box display="flex" gap={10}>
             <Box
               sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 4 }}
             >
-              {actionLinks.map((page) => (
-                <UnderlineAnimation
-                  onClick={() => handleCloseNavMenu(page)}
-                  id="action-link"
-                  text={page.name}
-                  key={page.name}
-                  origin="center"
-                />
-              ))}
+              {actionLinks.map((page) => {
+                const isSelected = pathname === page.path
+                return (
+                  <UnderlineAnimation
+                    isSelected={isSelected}
+                    onClick={() => handleChooseItem(page)}
+                    id="action-link"
+                    text={page.name}
+                    key={page.name}
+                    origin="center"
+                  />
+                )
+              })}
             </Box>
             <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
               Rent now
@@ -79,6 +86,7 @@ export const Header = () => {
           </Box>
         </Toolbar>
       </Container>
+      <TemporaryDrawer isOpen={isOpen} onClose={handleChooseItem} />
     </AppBar>
   )
 }

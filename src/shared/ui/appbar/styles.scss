@@ -16,21 +16,21 @@
   line-height: 28.9px !important;
   font-weight: 600 !important;
   text-decoration: none;
-  color:var(--global-color-secondary) !important;
+  color: var(--global-color-secondary) !important;
   margin-left: 5px;
   align-items: center;
 }
 
-.logo-wrapper{
+.logo-wrapper {
   display: flex;
   flex: 1;
 }
-#action-link{
+#action-link {
   margin-top: 12px;
   font-size: 14px !important;
-  font-weight: 500 !important;
+  font-weight: 500;
   height: 24px;
   text-decoration: none;
   text-transform: capitalize !important;
-  color:var(--global-color-secondary) !important;
+  color: var(--global-color-secondary);
 }
