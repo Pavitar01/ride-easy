@@ -1,0 +1,43 @@
+.direction-card {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &__name {
+    font-weight: var(--global-small-font-size);
+    color: #333;
+    font-weight: var(--global-bold-font);
+  }
+
+  &__description {
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  &__rating {
+    font-size: 0.9rem;
+    color: #ff9800;
+  }
+  .direction-card__button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    .direction-card__button {
+      border-radius: 50%;
+      color: #135ba1;
+    }
+    .direction-card__button-text{
+      margin-top: -5px;
+      font-size: var(--global-small-font-size);
+      color: var(--global-color-secondary);
+      font-weight: bold;
+      min-width: max-content;
+    }
+  }
+
+}

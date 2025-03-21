@@ -100,8 +100,8 @@
         position: absolute;
         right: -50px;
         bottom: -80px;
-        z-index: 2;
         .video-player {
+          z-index: 10;
           border-radius: 14px;
           @media screen and (max-width: 1107px) {
             display: none;

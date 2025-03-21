@@ -1,0 +1,78 @@
+.contact-us-hero-section {
+  width: 100%;
+  height: auto;
+  background-color: var(--global-color-secondary);
+  display: flex;
+  .container {
+    gap: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    @media screen and (max-width: 893px) {
+      flex-direction: column;
+    }
+    .left-section {
+      flex: 1;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      .hero-section-title {
+        font-family: var(--global-font-caveat);
+        font-size: var(--global-large-font-size);
+        color: var(--global-color-accent);
+        font-weight: var(--global-bold-font);
+        @media screen and (max-width: 893px) {
+          text-align: center;
+        }
+      }
+      .hero-section-heading {
+        font-family: var(--global-font-kumbh);
+        color: var(--global-color-primary);
+        font-weight: var(--global-bold-font);
+        line-height: var(--global-line-height);
+        @media screen and (max-width: 893px) {
+          text-align: center;
+        }
+      }
+      .hero-section-description {
+        width: 92%;
+        margin-top: 10px;
+        font-family: var(--global-font-kumbh);
+        color: var(--global-color-text);
+        font-weight: var(--global-regular-font);
+        @media screen and (max-width: 893px) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .hero-section-subtitle {
+        margin-top: 100px;
+        font-family: var(--global-font-kumbh);
+        color: var(--global-color-primary);
+        font-weight: var(--global-bold-font);
+        line-height: var(--global-line-height);
+        @media screen and (max-width: 893px) {
+          text-align: center;
+        }
+      }
+      .hero-section-time {
+        font-family: var(--global-font-kumbh);
+        color: var(--global-color-text);
+        font-weight: var(--global-regular-font);
+        @media screen and (max-width: 893px) {
+          text-align: center;
+          margin-bottom: 50px;
+        }
+      }
+      @media screen and (max-width: 893px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .right-section {
+      width: 100%;
+      flex: 1;
+    }
+  }
+}

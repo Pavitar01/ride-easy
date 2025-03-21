@@ -18,9 +18,9 @@ const kumbh = Kumbh_Sans({
 export const metadata: Metadata = {
   title: 'RideEasy | Bike & Scooter Rental',
   description: 'Bike & Scooter Rental',
-  icons:{
-    icon:"/app-logo.png"
-  }
+  icons: {
+    icon: '/app-logo.png',
+  },
 }
 
 export default function RootLayout({
@@ -30,6 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-site-verification"
+          content="cVxgSbwIF1EFnQkz6O2sd_gNVO8dskUUoYSfwaEQWPE"
+        />
+      </head>
       <body className={`${caveat.variable} ${kumbh.variable}`}>
         <StoreProvider>
           
