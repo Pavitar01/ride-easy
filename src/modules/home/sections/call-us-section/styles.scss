@@ -96,7 +96,7 @@
         }
 
         &:hover {
-          background-color: #f0ba33;
+          background-color: var(--global-color-accent);
           color: var(--global-color-primary);
         }
       }

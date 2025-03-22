@@ -15,6 +15,7 @@ import AppLogo from '../logo'
 import UnderlineAnimation from '../underline-animation'
 import actionLinks, { ActionLink } from './action-links'
 import './styles.scss'
+import ThemeSelector from '../theme-selector'
 
 export const Header = () => {
   const { push } = useRouter()
@@ -80,9 +81,12 @@ export const Header = () => {
                 )
               })}
             </Box>
-            <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
-              Rent now
-            </BaseButton>
+            <Box display={"flex"}>
+              <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
+                Rent now
+              </BaseButton>
+              {/* <ThemeSelector /> */}
+            </Box>
           </Box>
         </Toolbar>
       </Container>

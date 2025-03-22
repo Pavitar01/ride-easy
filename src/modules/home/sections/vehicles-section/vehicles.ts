@@ -59,14 +59,4 @@ export const vehicles = [
         price: 1500,
         image: ""
     },
-    {
-        title: "Ola S1 Pro",
-        features: {
-            fuel: "electric",
-            transmission: "automatic",
-            passenger: 2
-        },
-        price: 1400,
-        image: ""
-    }
 ];

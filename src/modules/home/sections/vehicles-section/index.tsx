@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 import {
   Box,
@@ -19,14 +19,24 @@ interface AllVehiclesButtonProps {
   handleShowMore: () => void
   visibleCount: number
 }
+
 const VehiclesSection = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const [visibleCount, setVisibleCount] = useState(3)
+  const lastVehicleRef = useRef<HTMLDivElement | null>(null)
+  const isFirstRender = useRef(true)
 
   const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 3)
+    isFirstRender.current = false
+    setVisibleCount(vehicles.length)
   }
+
+  useEffect(() => {
+    if (!isFirstRender.current && lastVehicleRef.current) {
+      lastVehicleRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [visibleCount])
 
   return (
     <Box className="vehicles-section">
@@ -59,13 +69,14 @@ const VehiclesSection = () => {
 
         <Box className="vehicles">
           {vehicles.slice(0, visibleCount).map((vehicle, index) => (
-            <VehicleCard
-              key={index}
-              features={vehicle.features}
-              title={vehicle.title}
-              price={vehicle.price}
-              image={vehicle.image}
-            />
+            <div key={index} ref={index === visibleCount - 1 ? lastVehicleRef : null}>
+              <VehicleCard
+                features={vehicle.features}
+                title={vehicle.title}
+                price={vehicle.price}
+                image={vehicle.image}
+              />
+            </div>
           ))}
         </Box>
         <AllVehiclesButton
@@ -96,7 +107,7 @@ const AllVehiclesButton = ({
           onClick={handleShowMore}
           disabled={visibleCount >= vehicles.length}
         >
-          <ArrowRightAltIcon color="inherit" />
+          <ArrowRightAltIcon color="inherit" className="arrow-right-icon" />
           &nbsp; &nbsp;More Vehicles
         </Button>
       </Box>
