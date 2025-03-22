@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: 10px;
 
   .facility-card-icon {
@@ -19,6 +19,7 @@
     font-family: var(--global-font-kumbh);
     color: var(--global-color-secondary);
     font-weight: var(--global-bold-font);
+    width: max-content;
   }
   .facility-card-description {
     display: flex;
@@ -26,7 +27,7 @@
     color: var(--global-color-text);
     font-weight: var(--global-regular-font);
     font-size: var(--global-regular-font-size-alt);
-    width: 248px;
+    width: 180px;
 
     @media screen and (max-width: 893px) {
       width: 100% !important;

@@ -5,24 +5,24 @@ import TwoWheelerOutlinedIcon from '@mui/icons-material/TwoWheelerOutlined'
 
 export const FacilityList = [
   {
-    title: 'Fast and Easy Booking',
+    title: 'Easy Booking',
     icon: <EventNoteOutlinedIcon fontSize="inherit" id="icon" />,
-    description:
-      'Quickly book your ride with a simple and hassle-free process.',
+    description: 'Book your ride quickly and hassle-free.',
   },
   {
-    title: 'Many Types Scooter',
+    title: 'Variety Scooters',
     icon: <TwoWheelerOutlinedIcon fontSize="inherit" id="icon" />,
-    description: 'Choose from a variety of scooter models to match your needs.',
+    description: 'Various scooter models to suit your needs.',
   },
   {
-    title: '24/7 Customer Support',
+    title: '24/7 Support',
     icon: <SupportAgentOutlinedIcon fontSize="inherit" id="icon" />,
-    description: 'Our support team is available 24/7 to assist you anytime.',
+    description: 'Support available anytime, day or night.',
   },
   {
-    title: 'Easy Payment Options',
+    title: 'Secure Payment',
     icon: <PaymentsOutlinedIcon fontSize="inherit" id="icon" />,
-    description: 'Secure payment methods for smooth transactions.',
+    description: 'Secure and convenient payments.',
   },
 ]
+

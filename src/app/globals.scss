@@ -1,14 +1,16 @@
 :root {
-  --global-color-white: #FFF;
+  --global-color-white: #fff;
   --global-color-primary: #fafafb;
   --global-color-bg: #ffffff;
   --global-color-accent: #fcc233;
+  --global-color-accent-hover: #f0ba33;
   --global-color-accent-alt: #fff1cd;
   --global-color-secondary: #26273c;
   --global-color-secondary-alt: rgba(211, 196, 196, 0.087);
+  --global-color-secondary-dark-alt: rgba(211, 196, 196, 0.418);
   --global-color-text: #9da1c3;
-  --global-font-caveat: "caveat", sans-serif !important;
-  --global-font-kumbh: "kumbh sans", sans-serif !important;
+  --global-font-caveat: 'caveat', sans-serif !important;
+  --global-font-kumbh: 'kumbh sans', sans-serif !important;
   --global-xxxl-font-size: 72px !important;
   --global-xxl-font-size: 56px !important;
   --global-xl-font-size: 42px !important;
@@ -24,10 +26,10 @@
   --global-semi-bold: 500 !important;
   --global-regular-font: 400 !important;
   --global-medium-bold-font: 600 !important;
-  --global-line-height:1.2em
+  --global-line-height: 1.2em;
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   font-family: var(--global-font-kumbh);

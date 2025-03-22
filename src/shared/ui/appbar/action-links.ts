@@ -5,7 +5,7 @@ interface ActionLink {
 
 const actionLinks: ActionLink[] = [
   { path: '/home', name: 'Home' },
-  // { path: '/bikes', name: 'Bikes' },
+  { path: '/vehicles', name: 'Vehicles' },
   { path: '/about-us', name: 'About Us' },
   { path: '/contact-us', name: 'Contact Us' },
 ]

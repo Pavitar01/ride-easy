@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { Box, Container, Typography } from '@mui/material'
 import BaseButton from '@/shared/ui/base-button'
 import { Rider2 } from '../../assets'
-import './styles.scss'
 import { Circle } from '@/shared/assets'
+import './styles.scss'
 
 const AboutUsSection = () => {
   return (

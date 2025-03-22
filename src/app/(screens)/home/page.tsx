@@ -10,9 +10,10 @@ export const metadata: Metadata = {
   title: 'RideEasy | Home',
   description: 'Bike & Scooter Rental home page',
   icons: {
-    icon: '/app-logo.png',
+    icon: "/app-logo.ico"
   },
 }
+
 const page = () => {
   return (
     <>

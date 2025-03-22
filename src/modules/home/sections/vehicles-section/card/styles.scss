@@ -2,6 +2,9 @@
   border-radius: 20px;
   padding: 10px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  @media screen and (max-width: 1166px) {
+    flex: 1;
+  }
   @media screen and (max-width: 893px) {
     width: 100%;
     height: auto;
@@ -14,7 +17,7 @@
     width: 340px;
     height: 300px;
     border-radius: 10px;
-    
+
     @media screen and (max-width: 893px) {
       width: 100%;
       height: auto;

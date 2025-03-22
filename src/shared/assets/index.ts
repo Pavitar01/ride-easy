@@ -1,2 +1,3 @@
 import Circle from "./circle.png"
-export { Circle }
+import Rider from "./rider.jpg"
+export { Circle,Rider }

@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material'
-import FacilityCard from './card/facility-card'
 import { FacilityList } from './facility-list'
 import './styles.scss'
+import FacilityCard from '@/shared/ui/card/facility-card'
 
 const FacilitySection = () => {
   return (
