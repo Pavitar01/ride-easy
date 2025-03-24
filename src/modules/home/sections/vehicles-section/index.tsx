@@ -5,14 +5,18 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 import {
   Box,
   Button,
+  CircularProgress,
   Container,
+  Skeleton,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
 import VehicleCard from './card'
-import { vehicles } from './vehicles'
+import { useListVehicles } from './hooks/useListVehicles'
 import './styles.scss'
+import { Vehicle } from './types'
+import { vehicles } from './vehicles'
 
 interface AllVehiclesButtonProps {
   isMobile: boolean
@@ -20,6 +24,7 @@ interface AllVehiclesButtonProps {
   visibleCount: number
 }
 const VehiclesSection = () => {
+  const { listVehicles, isLoading } = useListVehicles()
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const [visibleCount, setVisibleCount] = useState(3)
@@ -27,6 +32,17 @@ const VehiclesSection = () => {
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 3)
   }
+
+  const transformedData = listVehicles.map((item: Vehicle) => ({
+    title: item.name,
+    features: {
+      fuel: item.fuel,
+      transmission: item.transmission,
+      passenger: item.passengers,
+    },
+    price: item.price,
+    image: item.imageUrl,
+  }))
 
   return (
     <Box className="vehicles-section">
@@ -58,15 +74,23 @@ const VehiclesSection = () => {
         </Box>
 
         <Box className="vehicles">
-          {vehicles.slice(0, visibleCount).map((vehicle, index) => (
-            <VehicleCard
-              key={index}
-              features={vehicle.features}
-              title={vehicle.title}
-              price={vehicle.price}
-              image={vehicle.image}
-            />
-          ))}
+          {isLoading ? (
+            <Box className="skeleton-container">
+              <CircularProgress color="inherit" />
+            </Box>
+          ) : (
+            transformedData
+              .slice(0, visibleCount)
+              .map((vehicle, index) => (
+                <VehicleCard
+                  key={index}
+                  features={vehicle.features}
+                  title={vehicle.title}
+                  price={vehicle.price}
+                  image={vehicle.image}
+                />
+              ))
+          )}
         </Box>
         <AllVehiclesButton
           isMobile={isMobile}

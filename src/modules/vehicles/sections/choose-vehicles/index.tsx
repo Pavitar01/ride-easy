@@ -1,13 +1,9 @@
 'use client'
 
-import {
-  Box,
-  Container,
-  Typography,
-} from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import VehicleCard from './card'
-import { vehicles } from './vehicles'
 import './styles.scss'
+import { vehicles } from './vehicles'
 
 const ChooseVehiclesSection = () => {
 

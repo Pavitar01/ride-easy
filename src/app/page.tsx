@@ -1,12 +1,7 @@
-import Footer from '@/shared/ui/footer'
-import React from 'react'
+import React, { useState } from 'react'
 
 const page = () => {
-  return (
-    <div>
-     
-    </div>
-  )
+  return <div></div>
 }
 
 export default page

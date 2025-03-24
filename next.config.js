@@ -15,6 +15,10 @@ module.exports = {
         protocol: 'https',
         hostname: 'eamzn.in',
       },
+      {
+        protocol: 'https',
+        hostname: '"cloud.appwrite.io',
+      }
     ],
   },
   reactStrictMode: true,

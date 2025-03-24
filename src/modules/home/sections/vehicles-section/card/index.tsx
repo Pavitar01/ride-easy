@@ -7,7 +7,7 @@ import './styles.scss'
 interface VehicleCardProps {
   title: string
   price: number
-  image?: any
+  image: string
   features: {
     transmission: string
     fuel: string
@@ -18,7 +18,7 @@ const VehicleCard = ({ title, price, image, features }: VehicleCardProps) => {
   return (
     <Box className="vehicle-card-wrapper">
       <Box className="vehicle-image-container">
-        <Image src={Activa} alt={`${title}-image`} height={250} width={300} />
+        <Image src={image} alt={`${title}-image`} height={300} width={300} />
       </Box>
       <Box className="vehicle-details">
         <Typography className="vehicle-name" component="p">
