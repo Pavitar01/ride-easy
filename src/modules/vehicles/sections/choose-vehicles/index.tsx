@@ -9,7 +9,7 @@ import './styles.scss'
 const ChooseVehiclesSection = () => {
   const { listVehicles, isLoading } = useListVehicles()
   const transformedData = listVehicles.map((item: Vehicle) => ({
-    id: item.id,
+    id: item.$id,
     title: item.name,
     features: {
       fuel: item.fuel,
