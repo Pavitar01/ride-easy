@@ -5,12 +5,11 @@ import FacilitySection from '@/modules/home/sections/facility-section'
 import HeroSection from '@/modules/home/sections/hero-section'
 import VehiclesSection from '@/modules/home/sections/vehicles-section'
 
-
 export const metadata: Metadata = {
   title: 'RideEasy | Home',
   description: 'Bike & Scooter Rental home page',
   icons: {
-    icon: "/app-logo.ico"
+    icon: '/app-logo.ico',
   },
 }
 

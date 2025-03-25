@@ -5,6 +5,7 @@ import BaseButton from '@/shared/ui/base-button'
 import './styles.scss'
 
 interface VehicleCardProps {
+  id: string
   title: string
   price: number
   image: string
@@ -14,7 +15,13 @@ interface VehicleCardProps {
     passenger: number
   }
 }
-const VehicleCard = ({ title, price, image, features }: VehicleCardProps) => {
+const VehicleCard = ({
+  title,
+  price,
+  image,
+  features,
+  id,
+}: VehicleCardProps) => {
   return (
     <Box className="vehicle-card-wrapper">
       <Box className="vehicle-image-container">

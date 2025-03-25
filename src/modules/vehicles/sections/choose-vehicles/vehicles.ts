@@ -2,7 +2,8 @@ import { Activa } from '../../assets'
 
 export const vehicles = [
   {
-    title: 'Activa',
+    id: '67e158de0025048764c3',
+    label: 'Activa',
     features: {
       fuel: 'petrol',
       transmission: 'manual',
@@ -12,63 +13,14 @@ export const vehicles = [
     image: Activa,
   },
   {
-    title: 'Jupiter',
+    id: '67e158de0025048764c3',
+    label: 'Jupiter',
     features: {
       fuel: 'petrol',
       transmission: 'manual',
       passenger: 2,
     },
     price: 1100,
-    image: Activa,
-  },
-  {
-    title: 'Access 125',
-    features: {
-      fuel: 'petrol',
-      transmission: 'manual',
-      passenger: 2,
-    },
-    price: 1050,
-    image: Activa,
-  },
-  {
-    title: 'NTorq',
-    features: {
-      fuel: 'petrol',
-      transmission: 'manual',
-      passenger: 2,
-    },
-    price: 1200,
-    image: Activa,
-  },
-  {
-    title: 'Ray ZR',
-    features: {
-      fuel: 'petrol',
-      transmission: 'manual',
-      passenger: 2,
-    },
-    price: 1150,
-    image: Activa,
-  },
-  {
-    title: 'Ather 450X',
-    features: {
-      fuel: 'electric',
-      transmission: 'automatic',
-      passenger: 2,
-    },
-    price: 1500,
-    image: Activa,
-  },
-  {
-    title: 'Ola S1 Pro',
-    features: {
-      fuel: 'electric',
-      transmission: 'automatic',
-      passenger: 2,
-    },
-    price: 1400,
     image: Activa,
   },
 ]

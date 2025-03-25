@@ -72,6 +72,9 @@
             margin-bottom: 10px;
           }
         }
+        @media screen and (max-width: 893px) {
+          flex-direction: column;
+        }
       }
       .message-form-control {
         width: 100%;
@@ -96,6 +99,14 @@
         .message-input {
           flex: 1 !important;
           width: 95%;
+        }
+      }
+      .location-vehicles-details-wrapper {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        @media screen and (max-width: 893px) {
+          flex-direction: column;
         }
       }
     }

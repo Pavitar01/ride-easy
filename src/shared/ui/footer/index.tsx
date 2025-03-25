@@ -1,11 +1,14 @@
 'use client'
 
+import { useState } from 'react'
 import { Box, Container, Typography } from '@mui/material'
 import BaseButton from '../base-button'
+import { BaseInput } from '../base-input'
 import { footerLinks, socialLinks } from './footer-links'
 import './styles.scss'
 
 const Footer = () => {
+  const [email, setEmail] = useState('')
   return (
     <Box className="footer-section">
       <Container maxWidth="lg" className="container">
@@ -30,13 +33,18 @@ const Footer = () => {
             )}
             {item.title.includes('Subscribe Us') && (
               <form className="footer-column-form">
-                <input type="email" placeholder="Enter your email" />
+                <BaseInput
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 <BaseButton>Subscribe</BaseButton>
               </form>
             )}
           </div>
         ))}
-        <Box className="divider"/>
+        <Box className="divider" />
         <Box className="footer-copyright">
           <Typography className="footer-copyright-text" component="p">
             © 2025 RideEasy. All rights reserved.

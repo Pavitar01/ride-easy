@@ -7,14 +7,21 @@ import './styles.scss'
 interface VehicleCardProps {
   title: string
   price: number
-  image: StaticImageData
+  image: string
+  id: string
   features: {
     transmission: string
     fuel: string
     passenger: number
   }
 }
-const VehicleCard = ({ title, price, image, features }: VehicleCardProps) => {
+const VehicleCard = ({
+  title,
+  price,
+  image,
+  features,
+  id,
+}: VehicleCardProps) => {
   return (
     <Box className="vehicle-card-wrapper">
       <Box className="vehicle-image-container">

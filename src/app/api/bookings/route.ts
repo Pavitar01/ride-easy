@@ -1,12 +1,4 @@
-import {
-  Client,
-  Databases,
-  ID,
-  Permission,
-  Role,
-  Account,
-  Storage,
-} from 'appwrite'
+import { Client, Databases, ID, Account, Storage } from 'appwrite'
 import { NextResponse } from 'next/server'
 
 const client = new Client()
@@ -21,24 +13,24 @@ export const POST = async (req: Request) => {
   try {
     const formData = await req.formData()
     console.log([...formData.entries()])
-    const name = formData.get('name') as string
-    const price = Number(formData.get('price'))
-    const transmission = formData.get('transmission') as string
-    const fuel = formData.get('fuel') as string
-    const passengers = Number(formData.get('passengers'))
-    const userId = formData.get('userId')
-    const image = formData.get('image') as File
+    const full_name = formData.get('fullName') as string
+    const email = formData.get('email') as string
+    const phone = formData.get('phone') as string
+    const vehicle = formData.get('vehicle') as string
+    const pickup_date = formData.get('pickupDate')
+    const return_date = formData.get('returnDate')
+    const pickup_location = formData.get('pickupLocation') as string
+    const message = formData.get('message') as string
 
-    console.log(image)
     const missingFields: string[] = []
 
-    if (!name) missingFields.push('name')
-    if (!price) missingFields.push('price')
-    if (!transmission) missingFields.push('transmission')
-    if (!fuel) missingFields.push('fuel')
-    if (!passengers) missingFields.push('passengers')
-    if (!userId) missingFields.push('userId')
-    if (!image) missingFields.push('image')
+    if (!full_name) missingFields.push('fullName')
+    if (!email) missingFields.push('email')
+    if (!phone) missingFields.push('phone')
+    if (!vehicle) missingFields.push('vehicle')
+    if (!pickup_date) missingFields.push('pickUpDate')
+    if (!return_date) missingFields.push('returnDate')
+    if (!pickup_location) missingFields.push('pickUpLocation')
 
     if (missingFields.length > 0) {
       return NextResponse.json(
@@ -47,22 +39,20 @@ export const POST = async (req: Request) => {
       )
     }
 
-    const uploadedFile = await storage.createFile(
-      process.env.APPWRITE_STORAGE_BUCKET_ID as string,
-      ID.unique(),
-      image
-    )
-
-    const imageUrl = storage.getFileView(
-      process.env.APPWRITE_STORAGE_BUCKET_ID as string,
-      uploadedFile.$id
-    )
-
     const response = await databases.createDocument(
       process.env.APPWRITE_DATABASE_ID as string,
-      process.env.APPWRITE_VEHICLES_COLLECTION_ID as string,
+      process.env.APPWRITE_BOOKING_COLLECTION_ID as string,
       ID.unique(),
-      { name, price, transmission, fuel, passengers, imageUrl }
+      {
+        full_name,
+        email,
+        phone,
+        vehicle,
+        pickup_date,
+        return_date,
+        pickup_location,
+        message,
+      }
     )
 
     const {
@@ -75,11 +65,11 @@ export const POST = async (req: Request) => {
       ...filteredResponse
     } = response
     return NextResponse.json(
-      { message: 'Vehicle added successfully', data: filteredResponse },
+      { message: 'Vehicle booked successfully', data: filteredResponse },
       { status: 201 }
     )
   } catch (err: any) {
-    console.error('Error adding vehicle:', err)
+    console.error('Error in booking vehicle:', err)
     return NextResponse.json(
       { error: err?.message || 'Something went wrong' },
       { status: 500 }
@@ -91,7 +81,7 @@ export const GET = async (req: Request) => {
   try {
     const response = await databases.listDocuments(
       process.env.APPWRITE_DATABASE_ID as string,
-      process.env.APPWRITE_VEHICLES_COLLECTION_ID as string
+      process.env.APPWRITE_BOOKING_COLLECTION_ID as string
     )
 
     const filteredDocuments = response.documents.map(
@@ -106,11 +96,11 @@ export const GET = async (req: Request) => {
       }) => doc
     )
     return NextResponse.json(
-      { message: 'Vehicles fetched successfully', data: filteredDocuments },
+      { message: 'Booking fetched successfully', data: filteredDocuments },
       { status: 200 }
     )
   } catch (err: any) {
-    console.error('Error fetching vehicles:', err)
+    console.error('Error fetching Booking:', err)
     return NextResponse.json(
       { error: err?.message || 'Something went wrong' },
       { status: 500 }

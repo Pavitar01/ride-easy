@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Vehicle } from '../types'
+import { Vehicle } from '@/types'
 
 export const useListVehicles = () => {
   const [listVehicles, setLisVehicles] = useState<Vehicle[]>([])

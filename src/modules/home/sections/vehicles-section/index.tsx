@@ -7,15 +7,14 @@ import {
   Button,
   CircularProgress,
   Container,
-  Skeleton,
   Typography,
   useMediaQuery,
   useTheme,
 } from '@mui/material'
+import { useListVehicles } from '@/shared/hooks'
+import { Vehicle } from '@/types'
 import VehicleCard from './card'
-import { useListVehicles } from './hooks/useListVehicles'
 import './styles.scss'
-import { Vehicle } from './types'
 import { vehicles } from './vehicles'
 
 interface AllVehiclesButtonProps {
@@ -34,6 +33,7 @@ const VehiclesSection = () => {
   }
 
   const transformedData = listVehicles.map((item: Vehicle) => ({
+    id: item.id,
     title: item.name,
     features: {
       fuel: item.fuel,
@@ -84,6 +84,7 @@ const VehiclesSection = () => {
               .map((vehicle, index) => (
                 <VehicleCard
                   key={index}
+                  id={vehicle.id}
                   features={vehicle.features}
                   title={vehicle.title}
                   price={vehicle.price}

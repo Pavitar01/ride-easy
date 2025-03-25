@@ -3,17 +3,8 @@ import { Caveat, Kumbh_Sans } from 'next/font/google'
 import { StoreProvider } from '@/shared/providers/store-provider'
 import './globals.scss'
 
-const caveat = Caveat({
-  variable: '--font-caveat',
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
-
-const kumbh = Kumbh_Sans({
-  variable: '--font-Kumbh_Sans',
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
+const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat' })
+const kumbh = Kumbh_Sans({ subsets: ['latin'], variable: '--font-kumbh' })
 
 export const metadata: Metadata = {
   title: 'RideEasy | Bike & Scooter Rental',
@@ -36,12 +27,11 @@ export default function RootLayout({
           content="cVxgSbwIF1EFnQkz6O2sd_gNVO8dskUUoYSfwaEQWPE"
         />
       </head>
-      <body className={`${caveat.variable} ${kumbh.variable}`}>
-        <StoreProvider>
-          
-          {children}
-          
-          </StoreProvider>
+      <body
+        className={`${caveat.variable} ${kumbh.variable}`}
+        suppressHydrationWarning={true}
+      >
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   )

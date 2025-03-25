@@ -1,0 +1,40 @@
+.select-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--global-font-kumbh);
+  .title {
+    font-size: var(--global-regular-font-size-alt);
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-secondary);
+    font-weight: var(--global-bold-font);
+    line-height: var(--global-line-height);
+  }
+  .MuiOutlinedInput-root {
+    background-color: var(--global-color-secondary-dark-alt);
+    color: gray !important;
+    font-weight: var(--global-regular-font);
+    .MuiSelect-select {
+      color: gray !important;
+    }
+
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: transparent !important; 
+    }
+
+    &.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-color: transparent !important; 
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border-color: transparent !important;
+    }
+  }
+
+  .MuiSelect-select.MuiPlaceholder {
+    color: gray !important; 
+  }
+
+  .MuiSelect-select:has([value='']) {
+    color: gray !important;
+  }
+}

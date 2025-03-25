@@ -17,8 +17,8 @@ module.exports = {
       },
       {
         protocol: 'https',
-        hostname: '"cloud.appwrite.io',
-      }
+        hostname: 'cloud.appwrite.io',
+      },
     ],
   },
   reactStrictMode: true,

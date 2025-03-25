@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import dayjs, { Dayjs } from 'dayjs'
 import {
   Box,
@@ -18,12 +19,41 @@ import BaseButton from '@/shared/ui/base-button'
 import './styles.scss'
 
 const DateLocationPicker = () => {
+  const { push } = useRouter()
+  const [location, setLocation] = useState('')
+  const [pickUpDate, setPickUpDate] = useState<Dayjs | null>(null)
+  const [returnDate, setReturnDate] = useState<Dayjs | null>(null)
+
+  const bookRide = () => {
+    const params = new URLSearchParams()
+    if (location) params.append('pickupLocation', location)
+    if (pickUpDate) params.append('pickUpDate', pickUpDate.format('YYYY-MM-DD'))
+    if (returnDate) params.append('returnDate', returnDate.format('YYYY-MM-DD'))
+
+    push(`/vehicles/#booking-section?${params.toString()}`)
+  }
+
   return (
     <Box className="date-location-picker">
-      <Input title="Location" type="Select" />
-      <Input title="Pick Up Date" type="date" />
-      <Input title="Return Date" type="date" />
-      <BaseButton sx={{ height: '56px', marginTop: '32px' }}>
+      <Input
+        title="Location"
+        type="Select"
+        value={location}
+        onChange={(value) => setLocation(value as string)}
+      />
+      <Input
+        title="Pick Up Date"
+        type="date"
+        value={pickUpDate}
+        onChange={(value) => setPickUpDate(value as Dayjs | null)}
+      />
+      <Input
+        title="Return Date"
+        type="date"
+        value={returnDate}
+        onChange={(value) => setReturnDate(value as Dayjs | null)}
+      />
+      <BaseButton sx={{ height: '56px', marginTop: '32px' }} onClick={bookRide}>
         Book Now
       </BaseButton>
     </Box>
@@ -33,14 +63,13 @@ const DateLocationPicker = () => {
 interface InputProps {
   title: string
   type: 'date' | 'Select'
+  value: string | Dayjs | null
+  onChange: (value: string | Dayjs | null) => void
 }
 
-const Input = ({ title, type }: InputProps) => {
-  const [age, setAge] = useState('')
-  const [value, setValue] = useState<Dayjs | null>(dayjs('2022-04-17'))
-
+const Input = ({ title, type, value, onChange }: InputProps) => {
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string)
+    onChange(event.target.value)
   }
 
   return (
@@ -52,7 +81,7 @@ const Input = ({ title, type }: InputProps) => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={age}
+              value={value as string}
               onChange={handleChange}
               sx={{ fontFamily: 'inherit' }}
               displayEmpty
@@ -60,8 +89,8 @@ const Input = ({ title, type }: InputProps) => {
               <MenuItem value="" disabled>
                 Select Location
               </MenuItem>
-              <MenuItem value={10}>Dehradun</MenuItem>
-              <MenuItem value={20}>Mussorie</MenuItem>
+              <MenuItem value="Dehradun">Dehradun</MenuItem>
+              <MenuItem value="Mussorie">Mussorie</MenuItem>
             </Select>
           </FormControl>
         ) : (
@@ -71,9 +100,13 @@ const Input = ({ title, type }: InputProps) => {
               components={['DatePicker']}
             >
               <DatePicker
-                value={value}
-                onChange={(newValue) => setValue(newValue)}
-                sx={{ width: { xs: '100%', md: '180px' }, mt: '8px',fontFamily: 'inherit' }}
+                value={value as Dayjs | null}
+                onChange={onChange}
+                sx={{
+                  width: { xs: '100%', md: '180px' },
+                  mt: '8px',
+                  fontFamily: 'inherit',
+                }}
               />
             </DemoContainer>
           </LocalizationProvider>
