@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, Container, Typography } from '@mui/material'
+import { Box, CircularProgress, Container, Typography } from '@mui/material'
 import { useListVehicles } from '@/shared/hooks'
 import { Vehicle } from '@/types'
 import VehicleCard from './card'
@@ -45,7 +45,9 @@ const ChooseVehiclesSection = () => {
 
         <Box className="vehicles">
           {isLoading ? (
-            <Box className="vehicle-card-wrapper"></Box>
+            <Box className="vehicle-card-loader">
+              <CircularProgress />
+            </Box>
           ) : transformedData.length > 0 ? (
             transformedData.map((vehicle, index) => (
               <VehicleCard
