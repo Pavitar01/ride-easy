@@ -1,5 +1,5 @@
 interface Vehicle {
-  id: string
+  $id: string
   name: string
   fuel: string
   transmission: string

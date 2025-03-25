@@ -1,11 +1,16 @@
+'use client'
 import Image from 'next/image'
 import { Box, Container, Typography } from '@mui/material'
+import { Circle } from '@/shared/assets'
 import BaseButton from '@/shared/ui/base-button'
 import { Rider2 } from '../../assets'
-import { Circle } from '@/shared/assets'
 import './styles.scss'
 
 const AboutUsSection = () => {
+  const moveToVehiclesSection = () => {
+    const vehiclesSection = document.getElementById('vehicles-section')
+    vehiclesSection?.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <Box className="about-us-section">
       <Container maxWidth="lg" className="container">
@@ -13,12 +18,12 @@ const AboutUsSection = () => {
           <Box className="image-container">
             <Image
               src={Rider2}
-              className='about-us-image'
+              className="about-us-image"
               alt="about-us-image"
               quality={100}
-              width={500} 
+              width={500}
               height={500}
-              style={{ objectFit: "cover" }} 
+              style={{ objectFit: 'cover' }}
             />
           </Box>
           <Image
@@ -52,6 +57,7 @@ const AboutUsSection = () => {
             adventure, we offer the perfect two-wheeler for your journey.
           </Typography>
           <BaseButton
+            onClick={moveToVehiclesSection}
             sx={{
               marginTop: '32px',
               width: {

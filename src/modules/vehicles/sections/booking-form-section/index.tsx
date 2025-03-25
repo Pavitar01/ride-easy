@@ -3,17 +3,19 @@
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import {
   Box,
   Button,
+  CircularProgress,
   FormControl,
   FormHelperText,
   Typography,
 } from '@mui/material'
 import { locations } from '@/shared/constants'
+import { useListVehicles } from '@/shared/hooks'
 import { BaseInput } from '@/shared/ui/base-input'
-import { vehicles } from '../choose-vehicles/vehicles'
+import { Vehicle } from '@/types'
 import DateInput from './input/date-input'
 import SelectInput from './input/select-input'
 import './styles.scss'
@@ -31,20 +33,56 @@ interface IBookingForm {
 
 const BookingFormSection = () => {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const [currentDate, setCurrentDate] = useState('')
+  const { listVehicles, isLoading } = useListVehicles()
+  const [isDataSubmitting, setIsDataSubmitting] = useState(false)
 
   useEffect(() => {
-    setCurrentDate(new Date().toISOString().split('T')[0]) // Sets today's date once on the client
+    setCurrentDate(new Date().toISOString().split('T')[0])
   }, [])
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
     reset,
-  } = useForm<IBookingForm>()
+  } = useForm<IBookingForm>({
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: undefined,
+      vehicle: '',
+      pickupDate: '',
+      returnDate: '',
+      pickupLocation: '',
+      message: '',
+    },
+  })
+
+  useEffect(() => {
+    const hash = window.location.hash
+
+    if (hash.includes('?')) {
+      const queryString = hash.split('?')[1]
+      const searchParams = new URLSearchParams(queryString)
+      const pickupLocation = searchParams.get('pickupLocation') || ''
+      const pickupDate = searchParams.get('pickUpDate') || currentDate
+      const returnDate = searchParams.get('returnDate') || currentDate
+      const vehicle = searchParams.get('vehicle') || ''
+
+      reset((prevValues) => ({
+        ...prevValues,
+        pickupDate,
+        returnDate,
+        pickupLocation,
+        vehicle,
+      }))
+    }
+  }, [reset])
+
   const onSubmit = async (data: IBookingForm) => {
+    setIsDataSubmitting(true)
     const formData = new FormData()
     formData.append('fullName', data.fullName)
     formData.append('email', data.email)
@@ -66,27 +104,20 @@ const BookingFormSection = () => {
       if (response.ok) {
         toast.success('Booking successful!')
       } else {
-        toast.error(`Failed to book`)
+        if (response.status === 409) {
+          toast.error('Vehicle already booked')
+        } else if (response.status === 400) {
+          toast.error(result.error)
+        } else {
+          toast.error(`Failed to book`)
+        }
       }
     } catch (error) {
       toast.error('Something went wrong. Please try again.')
+    } finally {
+      setIsDataSubmitting(false)
     }
   }
-
-  useEffect(() => {
-    reset({
-      fullName: searchParams.get('fullName') || '',
-      email: searchParams.get('email') || '',
-      phone: searchParams.get('phone')
-        ? Number(searchParams.get('phone'))
-        : undefined,
-      vehicle: searchParams.get('vehicle') || '',
-      pickupDate: searchParams.get('pickupDate') || currentDate,
-      returnDate: searchParams.get('returnDate') || currentDate,
-      pickupLocation: searchParams.get('pickupLocation') || '',
-      message: searchParams.get('message') || '',
-    })
-  }, [searchParams, reset, currentDate])
 
   useEffect(() => {
     if (window.location.hash) {
@@ -100,6 +131,18 @@ const BookingFormSection = () => {
       }
     }
   }, [pathname])
+
+  const transformedData = listVehicles.map((item: Vehicle) => ({
+    id: item.$id,
+    label: item.name,
+    features: {
+      fuel: item.fuel,
+      transmission: item.transmission,
+      passenger: item.passengers,
+    },
+    price: item.price,
+    image: item.imageUrl,
+  }))
 
   return (
     <Box className="booking-form-section" id="booking-section">
@@ -179,7 +222,13 @@ const BookingFormSection = () => {
                 }}
                 className={`base-input ${errors.phone ? 'error-border' : ''}`}
                 placeHolder="Phone"
-                {...register('phone', { required: 'Phone is required' })}
+                {...register('phone', {
+                  required: 'Phone is required',
+                  maxLength: {
+                    value: 10,
+                    message: 'Phone number should be 10 digits',
+                  },
+                })}
               />
               {errors.phone && (
                 <FormHelperText className="error-text">
@@ -192,7 +241,7 @@ const BookingFormSection = () => {
             <SelectInput
               label="Vehicles *"
               name="vehicle"
-              options={vehicles}
+              options={transformedData}
               control={control}
               errors={errors}
             />
@@ -221,7 +270,7 @@ const BookingFormSection = () => {
             className="message-form-control"
           >
             <Typography component="p" className="title">
-              Message
+              Message (Optional)
             </Typography>
 
             <Box
@@ -232,9 +281,7 @@ const BookingFormSection = () => {
                 className={`message-input`}
                 placeHolder="Write message ..."
                 rows={3}
-                {...register('message', {
-                  required: 'Message cannot be empty',
-                })}
+                {...register('message')}
               />
             </Box>
             {errors.message && (
@@ -245,13 +292,15 @@ const BookingFormSection = () => {
           </FormControl>
         </Box>
         <Button
+          disabled={isDataSubmitting}
           className="booking-now-button"
           variant="contained"
           onClick={handleSubmit(onSubmit)}
           disableElevation
           fullWidth
         >
-          Booking Now
+          {isDataSubmitting && <CircularProgress size={18} color="inherit" />}
+          &nbsp; Booking Now
         </Button>
       </Box>
     </Box>

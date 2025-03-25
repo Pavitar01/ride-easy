@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import PhoneIcon from '@mui/icons-material/Phone'
 import {
   Box,
@@ -16,7 +17,11 @@ import './styles.scss'
 
 const CallUsSection = () => {
   const theme = useTheme()
+  const { push } = useRouter()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const bookRide = () => {
+    push('/vehicles/#booking-section')
+  }
   return (
     <Box className="call-us-section">
       <Box className="bg-image">
@@ -51,6 +56,7 @@ const CallUsSection = () => {
         </Typography>
         <Box className="button-wrapper">
           <BaseButton
+            onClick={bookRide}
             sx={{ marginTop: '50px', width: !isMobile ? '250px' : '100%' }}
           >
             Book Now

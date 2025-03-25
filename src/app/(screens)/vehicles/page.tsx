@@ -17,7 +17,7 @@ const page = () => {
     <>
       <HeroSection />
       <WhyChooseUsSection />
-      <ChooseVehiclesSection/>
+      {/* <ChooseVehiclesSection/> */}
       <BookingFormSection />
     </>
   )

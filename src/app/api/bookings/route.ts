@@ -72,7 +72,7 @@ export const POST = async (req: Request) => {
     console.error('Error in booking vehicle:', err)
     return NextResponse.json(
       { error: err?.message || 'Something went wrong' },
-      { status: 500 }
+      { status: err.code ?? 500 }
     )
   }
 }
@@ -100,7 +100,6 @@ export const GET = async (req: Request) => {
       { status: 200 }
     )
   } catch (err: any) {
-    console.error('Error fetching Booking:', err)
     return NextResponse.json(
       { error: err?.message || 'Something went wrong' },
       { status: 500 }

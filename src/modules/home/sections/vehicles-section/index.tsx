@@ -33,7 +33,7 @@ const VehiclesSection = () => {
   }
 
   const transformedData = listVehicles.map((item: Vehicle) => ({
-    id: item.id,
+    id: item.$id,
     title: item.name,
     features: {
       fuel: item.fuel,
@@ -45,7 +45,7 @@ const VehiclesSection = () => {
   }))
 
   return (
-    <Box className="vehicles-section">
+    <Box className="vehicles-section" id="vehicles-section">
       <Container maxWidth="lg" className="container">
         <Box className="wrapper">
           <Box className="title-container">

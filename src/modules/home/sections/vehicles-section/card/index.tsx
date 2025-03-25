@@ -1,6 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { Box, Typography } from '@mui/material'
-import { Activa } from '@/modules/home/assets'
 import BaseButton from '@/shared/ui/base-button'
 import './styles.scss'
 
@@ -22,6 +24,11 @@ const VehicleCard = ({
   features,
   id,
 }: VehicleCardProps) => {
+  const { push } = useRouter()
+
+  const rentThisBike = () => {
+    push('/vehicles/#booking-section?vehicle=' + id)
+  }
   return (
     <Box className="vehicle-card-wrapper">
       <Box className="vehicle-image-container">
@@ -59,7 +66,10 @@ const VehicleCard = ({
           </Typography>
         </Box>
       </Box>
-      <BaseButton sx={{ width: '100%', marginTop: '20px' }}>
+      <BaseButton
+        sx={{ width: '100%', marginTop: '20px' }}
+        onClick={rentThisBike}
+      >
         Book Now
       </BaseButton>
     </Box>

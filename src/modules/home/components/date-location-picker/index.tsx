@@ -89,8 +89,8 @@ const Input = ({ title, type, value, onChange }: InputProps) => {
               <MenuItem value="" disabled>
                 Select Location
               </MenuItem>
-              <MenuItem value="Dehradun">Dehradun</MenuItem>
-              <MenuItem value="Mussorie">Mussorie</MenuItem>
+              <MenuItem value="67e1ad68001c878ec0f5">Dehradun</MenuItem>
+              <MenuItem value="67e1ad5700275d11cc9a">Mussorie</MenuItem>
             </Select>
           </FormControl>
         ) : (

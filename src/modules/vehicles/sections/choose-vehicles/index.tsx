@@ -62,7 +62,6 @@ const ChooseVehiclesSection = () => {
           ) : (
             <Box className="vehicle-card-wrapper"></Box>
           )}
-          {}
         </Box>
       </Container>
     </Box>

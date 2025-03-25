@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Box, Container, Typography } from '@mui/material'
+import { Box, Container, InputBase, Typography } from '@mui/material'
 import BaseButton from '../base-button'
 import { BaseInput } from '../base-input'
 import { footerLinks, socialLinks } from './footer-links'
@@ -33,7 +33,7 @@ const Footer = () => {
             )}
             {item.title.includes('Subscribe Us') && (
               <form className="footer-column-form">
-                <BaseInput
+                <InputBase
                   type="email"
                   placeholder="Enter your email"
                   value={email}

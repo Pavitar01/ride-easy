@@ -81,7 +81,7 @@ export const POST = async (req: Request) => {
   } catch (err: any) {
     console.error('Error adding vehicle:', err)
     return NextResponse.json(
-      { error: err?.message || 'Something went wrong' },
+      { error: err?.response?.message || 'Something went wrong' },
       { status: 500 }
     )
   }
@@ -96,7 +96,6 @@ export const GET = async (req: Request) => {
 
     const filteredDocuments = response.documents.map(
       ({
-        $id,
         $createdAt,
         $updatedAt,
         $permissions,
