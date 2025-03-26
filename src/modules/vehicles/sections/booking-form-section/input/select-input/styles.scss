@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--global-font-kumbh);
+  margin-top: 10px;
   .title {
     font-size: var(--global-regular-font-size-alt);
     font-family: var(--global-font-kumbh);
@@ -10,7 +11,7 @@
     line-height: var(--global-line-height);
   }
   .MuiOutlinedInput-root {
-    background-color: var(--global-color-secondary-dark-alt);
+    background-color: var(--global-color-primary);
     color: gray !important;
     font-weight: var(--global-regular-font);
     .MuiSelect-select {
@@ -18,11 +19,11 @@
     }
 
     &:hover .MuiOutlinedInput-notchedOutline {
-      border-color: transparent !important; 
+      border-color: transparent !important;
     }
 
     &.Mui-focused .MuiOutlinedInput-notchedOutline {
-      border-color: transparent !important; 
+      border-color: transparent !important;
     }
 
     .MuiOutlinedInput-notchedOutline {
@@ -31,7 +32,7 @@
   }
 
   .MuiSelect-select.MuiPlaceholder {
-    color: gray !important; 
+    color: gray !important;
   }
 
   .MuiSelect-select:has([value='']) {

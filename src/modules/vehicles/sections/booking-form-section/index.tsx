@@ -175,8 +175,7 @@ const BookingFormSection = () => {
               </Typography>
               <BaseInput
                 sx={{
-                  backgroundColor:
-                    'var(--global-color-secondary-dark-alt) !important;',
+                  backgroundColor: 'var(--global-color-primary) !important;',
                 }}
                 className={`base-input ${
                   errors.fullName ? 'error-border' : ''
@@ -197,8 +196,7 @@ const BookingFormSection = () => {
               </Typography>
               <BaseInput
                 sx={{
-                  backgroundColor:
-                    'var(--global-color-secondary-dark-alt) !important;',
+                  backgroundColor: 'var(--global-color-primary) !important;',
                 }}
                 className={`base-input ${errors.email ? 'error-border' : ''}`}
                 placeHolder="Email"
@@ -217,8 +215,7 @@ const BookingFormSection = () => {
               </Typography>
               <BaseInput
                 sx={{
-                  backgroundColor:
-                    'var(--global-color-secondary-dark-alt) !important;',
+                  backgroundColor: 'var(--global-color-primary) !important;',
                 }}
                 className={`base-input ${errors.phone ? 'error-border' : ''}`}
                 placeHolder="Phone"

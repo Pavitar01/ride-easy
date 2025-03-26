@@ -7,6 +7,7 @@
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+
   .booking-form {
     width: 900px;
     border-width: 5px 0px 0px 0px;
@@ -81,11 +82,11 @@
       .message-form-control {
         width: 100%;
         flex: 1 !important;
-        margin-top: 20px;
+        margin-top: 10px;
         .message-base-input {
           padding: 10px;
           box-sizing: border-box;
-          background-color: var(--global-color-secondary-dark-alt) !important;
+          background-color: var(--global-color-primary) !important;
           color: var(--global-color-secondary) !important;
           flex: 1 !important;
           width: 100%;
@@ -104,7 +105,7 @@
         }
       }
       .location-vehicles-details-wrapper {
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
         gap: 10px;
         @media screen and (max-width: 893px) {
@@ -113,7 +114,7 @@
       }
     }
     .booking-now-button {
-      margin-top: 20px;
+      margin-top: 10px;
       background-color: var(--global-color-accent);
       font-size: var(--global-medium-font-size);
       font-family: var(--global-font-kumbh);

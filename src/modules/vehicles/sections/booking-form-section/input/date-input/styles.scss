@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--global-font-kumbh);
+  margin-top: 10px;
 
   .date-input-title {
     font-size: var(--global-regular-font-size-alt);
@@ -12,7 +13,7 @@
     margin-bottom: 0px !important;
   }
   .MuiOutlinedInput-root {
-    background-color: var(--global-color-secondary-dark-alt);
+    background-color: var(--global-color-primary);
     color: gray !important;
     font-weight: var(--global-regular-font);
     .MuiSelect-select {
