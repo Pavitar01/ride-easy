@@ -7,14 +7,14 @@ type User = {
 }
 
 interface AuthState {
-  user: User | null
+  user: User | "",
   token: string | null
   isAuthenticated: boolean
 }
 
 const initialState: AuthState = {
-  user: null,
-  token: null,
+  user: "",
+  token: "",
   isAuthenticated: false,
 }
 
@@ -28,8 +28,8 @@ const authSlice = createSlice({
       state.isAuthenticated = true
     },
     logout: (state) => {
-      state.user = null
-      state.token = null
+      state.user = ""
+      state.token = ""
       state.isAuthenticated = false
     },
   },
