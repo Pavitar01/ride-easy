@@ -3,6 +3,7 @@
 import { ReactNode } from 'react'
 import { ToastContainer } from 'react-toastify'
 import { Box } from '@mui/material'
+import StoreProvider from '@/shared/providers/store-provider'
 import { Header } from '@/shared/ui'
 import Footer from '@/shared/ui/footer'
 

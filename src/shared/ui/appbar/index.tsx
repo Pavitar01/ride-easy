@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState, useTransition } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import MenuIcon from '@mui/icons-material/Menu'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import AppBar from '@mui/material/AppBar'
@@ -9,26 +9,46 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
+import { login } from '@/modules/auth/store/authSlice'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import BaseButton from '../base-button'
 import TemporaryDrawer from '../drawer'
 import AppLogo from '../logo'
 import UnderlineAnimation from '../underline-animation'
 import actionLinks, { ActionLink } from './action-links'
 import './styles.scss'
-import ThemeSelector from '../theme-selector'
 
 export const Header = () => {
   const { push } = useRouter()
+  const dispatch = useAppDispatch()
+  const user = useAppSelector((state) => state.auth.user)
+
   const [isOpen, setIsOpen] = useState(false)
+  const [_, setTransition] = useTransition()
+
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const userId = searchParams.get('userId')
 
   const toggleDrawer = () => {
     setIsOpen((prev) => !prev)
   }
   const handleChooseItem = (page: ActionLink) => {
-    push(page.path)
+    console.log(user.id, page.name)
+    if (user.id && page.name.includes('Login')) {
+      push('profile?userId=' + user.id)
+    } else {
+      setTransition(() => {
+        push(page.path)
+      })
+    }
     setIsOpen(false)
   }
+  useEffect(() => {
+    if (userId) {
+      dispatch(login({ user: { id: userId as string }, token: '' }))
+    }
+  }, [userId])
 
   return (
     <AppBar position="static" className="app-bar-wrapper" elevation={0}>
@@ -81,12 +101,9 @@ export const Header = () => {
                 )
               })}
             </Box>
-            <Box display={"flex"}>
-              <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
-                Rent now
-              </BaseButton>
-              {/* <ThemeSelector /> */}
-            </Box>
+            <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
+              Rent now
+            </BaseButton>
           </Box>
         </Toolbar>
       </Container>

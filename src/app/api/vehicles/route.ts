@@ -29,7 +29,6 @@ export const POST = async (req: Request) => {
     const userId = formData.get('userId')
     const image = formData.get('image') as File
 
-    console.log(image)
     const missingFields: string[] = []
 
     if (!name) missingFields.push('name')
@@ -79,7 +78,6 @@ export const POST = async (req: Request) => {
       { status: 201 }
     )
   } catch (err: any) {
-    console.error('Error adding vehicle:', err)
     return NextResponse.json(
       { error: err?.response?.message || 'Something went wrong' },
       { status: 500 }
@@ -88,6 +86,11 @@ export const POST = async (req: Request) => {
 }
 
 export const GET = async (req: Request) => {
+  console.log(
+    process.env.APPWRITE_DATABASE_ID as string,
+    process.env.APPWRITE_VEHICLES_COLLECTION_ID as string,
+    'hellllllo'
+  )
   try {
     const response = await databases.listDocuments(
       process.env.APPWRITE_DATABASE_ID as string,

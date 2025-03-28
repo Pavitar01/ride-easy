@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Box, Typography } from '@mui/material'
 import BaseButton from '@/shared/ui/base-button'
 import './styles.scss'
+import { useTransition } from 'react'
 
 interface VehicleCardProps {
   id: string
@@ -25,9 +26,12 @@ const VehicleCard = ({
   id,
 }: VehicleCardProps) => {
   const { push } = useRouter()
+  const [_, setTransition] = useTransition()
 
   const rentThisBike = () => {
-    push('/vehicles/#booking-section?vehicle=' + id)
+    setTransition(() => {
+      push('/vehicles/#booking-section?vehicle=' + id)
+    })
   }
   return (
     <Box className="vehicle-card-wrapper">

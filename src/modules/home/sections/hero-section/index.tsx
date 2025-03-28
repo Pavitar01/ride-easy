@@ -3,8 +3,8 @@ import { Box, Container, Typography } from '@mui/material'
 import { TypeWriter } from '@/shared/ui'
 import { RiderCouples1 } from '../../assets'
 import DateLocationPicker from '../../components/date-location-picker'
-import './styles.scss'
 import { Circle } from '@/shared/assets'
+import './styles.scss'
 
 const textList = [
   {

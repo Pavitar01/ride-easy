@@ -1,5 +1,6 @@
 'use client'
 
+import { useTransition } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import PhoneIcon from '@mui/icons-material/Phone'
@@ -19,8 +20,12 @@ const CallUsSection = () => {
   const theme = useTheme()
   const { push } = useRouter()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const [_, setTransition] = useTransition()
+
   const bookRide = () => {
-    push('/vehicles/#booking-section')
+    setTransition(() => {
+      push('/vehicles/#booking-section')
+    })
   }
   return (
     <Box className="call-us-section">

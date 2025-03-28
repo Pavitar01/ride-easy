@@ -2,6 +2,9 @@
   display: inline-block;
   position: relative;
   cursor: pointer;
+  .login-icon{
+    margin-top: -10px;
+  }
 }
 
 .hover-underline-animation::after {

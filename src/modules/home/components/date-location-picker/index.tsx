@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import dayjs, { Dayjs } from 'dayjs'
 import {
@@ -23,6 +23,7 @@ const DateLocationPicker = () => {
   const [location, setLocation] = useState('')
   const [pickUpDate, setPickUpDate] = useState<Dayjs | null>(null)
   const [returnDate, setReturnDate] = useState<Dayjs | null>(null)
+  const [_, setTransition] = useTransition()
 
   const bookRide = () => {
     const params = new URLSearchParams()
@@ -30,7 +31,9 @@ const DateLocationPicker = () => {
     if (pickUpDate) params.append('pickUpDate', pickUpDate.format('YYYY-MM-DD'))
     if (returnDate) params.append('returnDate', returnDate.format('YYYY-MM-DD'))
 
-    push(`/vehicles/#booking-section?${params.toString()}`)
+    setTransition(() => {
+      push(`/vehicles#booking-section?${params.toString()}`)
+    })
   }
 
   return (

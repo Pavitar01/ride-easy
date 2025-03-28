@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Caveat, Kumbh_Sans } from 'next/font/google'
-import { StoreProvider } from '@/shared/providers/store-provider'
+import StoreProvider from '@/shared/providers/store-provider'
 import './globals.scss'
 
 const caveat = Caveat({ subsets: ['latin'], variable: '--font-caveat' })

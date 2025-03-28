@@ -1,0 +1,32 @@
+.auth-heading-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .auth-heading {
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-secondary);
+    font-weight: var(--global-medium-bold-font);
+  }
+  .auth-description {
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-text);
+    font-weight: var(--global-regular-font);
+  }
+}
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .email-input {
+    border-radius: 20px;
+    border: 1px solid var(--global-color-text);
+    font-family: var(--global-font-kumbh) !important;
+    color: var(--global-color-text-alt);
+    font-weight: var(--global-regular-font);
+  }
+}
+
+.auth-illustration {
+  border-radius: 10px;
+}

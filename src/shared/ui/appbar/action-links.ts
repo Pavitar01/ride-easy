@@ -8,6 +8,7 @@ const actionLinks: ActionLink[] = [
   { path: '/vehicles', name: 'Vehicles' },
   { path: '/about-us', name: 'About Us' },
   { path: '/contact-us', name: 'Contact Us' },
+  { path: '/login', name: 'Login' },
 ]
 
 export type { ActionLink }

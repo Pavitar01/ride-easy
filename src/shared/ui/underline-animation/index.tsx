@@ -1,4 +1,9 @@
+'use client'
+
+import { useEffect } from 'react'
+import { AccountCircle } from '@mui/icons-material'
 import { Typography, TypographyProps } from '@mui/material'
+import { useAppSelector } from '@/store/hooks'
 import './styles.scss'
 
 interface UnderlineAnimationProps extends TypographyProps {
@@ -13,7 +18,16 @@ const UnderlineAnimation = ({
   origin,
   ...props
 }: UnderlineAnimationProps) => {
-  return (
+  const user = useAppSelector((state) => state.auth.user)
+  return text.includes('Login') ? (
+    <Typography
+      component="p"
+      className={`hover-underline-animation ${origin} ${isSelected ? 'selected' : ''}`}
+      {...props}
+    >
+      {!user.id ? text : 'Profile'}
+    </Typography>
+  ) : (
     <Typography
       component="p"
       className={`hover-underline-animation ${origin} ${isSelected ? 'selected' : ''}`}
