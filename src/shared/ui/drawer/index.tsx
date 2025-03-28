@@ -18,7 +18,7 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
   return isMobile && isOpen ? (
     <Box className="temp-drawer">
       {actionLinks.map((action) => {
-        const isSelected = action.path === pathname
+        const isSelected = action.path === pathname || (pathname.includes("profile") && action.name.includes('Login') && user.id)
         return (
           <Box
             key={action.path}

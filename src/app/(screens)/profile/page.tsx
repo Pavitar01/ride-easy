@@ -2,7 +2,7 @@ import { Avatar, Box, Card, CardContent, Chip, Divider, Grid, Stack, Typography 
 
 export default function ProfilePage() {
   return (
-    <Box sx={{ p: 3, background: "linear-gradient(to right, var(--global-color-secondary-dark-alt), var(--global-color-text))", minHeight: "100vh" }}>
+    <Box sx={{ p: 3 }}>
       <Card sx={{ maxWidth: 900, mx: "auto", p: 3, borderRadius: 3 }}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
@@ -14,7 +14,7 @@ export default function ProfilePage() {
                 Full stack product designer with hands-on experience in creating
                 intuitive solutions.
               </Typography>
-              <Stack direction="row" spacing={1} flexWrap="wrap" justifyContent="center">
+              <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={1}>
                 {["UI/UX", "Adobe XD", "Mobile Apps", "User Research", "Wireframing"].map(skill => (
                   <Chip key={skill} label={skill} variant="outlined" />
                 ))}
@@ -25,7 +25,7 @@ export default function ProfilePage() {
           <Grid item xs={12} md={8}>
             <CardContent>
               <Typography variant="h6" fontWeight={600}>Basic Information</Typography>
-              <Grid container spacing={2} sx={{ mt: 1 }}>
+              <Grid container spacing={2} sx={{ mt: 1, flexWrap:"wrap"}}>
                 <Grid item xs={6}><Typography variant="body2">Age: 100 years</Typography></Grid>
                 <Grid item xs={6}><Typography variant="body2">Experience: 100 years</Typography></Grid>
                 <Grid item xs={6}><Typography variant="body2">CTC: 0LPA</Typography></Grid>
