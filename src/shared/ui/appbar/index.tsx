@@ -34,7 +34,6 @@ export const Header = () => {
     setIsOpen((prev) => !prev)
   }
   const handleChooseItem = (page: ActionLink) => {
-    console.log(user.id, page.name)
     if (user.id && page.name.includes('Login')) {
       push('profile?userId=' + user.id)
     } else {

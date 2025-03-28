@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { Box, Typography, useMediaQuery } from '@mui/material'
+import { useAppSelector } from '@/store/hooks'
 import actionLinks, { ActionLink } from '../appbar/action-links'
 import './styles.scss'
 
@@ -12,6 +13,8 @@ interface DrawerProps {
 const Drawer = ({ isOpen, onClose }: DrawerProps) => {
   const pathname = usePathname()
   const isMobile = useMediaQuery('(max-width: 893px)')
+  const user = useAppSelector((state) => state.auth.user)
+  
   return isMobile && isOpen ? (
     <Box className="temp-drawer">
       {actionLinks.map((action) => {
@@ -23,7 +26,8 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
             onClick={() => onClose(action)}
           >
             <Typography component="p" id="action-link">
-              {action.name}
+              
+              {action.name.includes('Login') ? (!user.id ? action.name : 'Profile') : action.name}
             </Typography>
           </Box>
         )
