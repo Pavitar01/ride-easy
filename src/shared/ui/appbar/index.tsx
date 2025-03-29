@@ -35,7 +35,7 @@ export const Header = () => {
   }
   const handleChooseItem = (page: ActionLink) => {
     if (user.id && page.name.includes('Login')) {
-      push('profile?userId=' + user.id)
+      push('/profile?userId=' + user.id)
     } else {
       setTransition(() => {
         push(page.path)
@@ -87,7 +87,7 @@ export const Header = () => {
               sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 4 }}
             >
               {actionLinks.map((page) => {
-                const isSelected = pathname === page.path
+                const isSelected = page.path === pathname || (pathname.includes("profile") && page.name.includes('Login') && user.id)
                 return (
                   <UnderlineAnimation
                     isSelected={isSelected}

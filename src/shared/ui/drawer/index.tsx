@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { Box, Typography, useMediaQuery } from '@mui/material'
 import { useAppSelector } from '@/store/hooks'
-import actionLinks, { ActionLink } from '../appbar/action-links'
+import actionLinks from '../appbar/action-links'
 import './styles.scss'
 
 interface DrawerProps {
