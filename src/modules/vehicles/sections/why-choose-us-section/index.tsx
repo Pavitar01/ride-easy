@@ -15,6 +15,7 @@ const WhyChooseUsSection = () => {
         <Box className="why-choose-us-left-section">
           <Box className="image-container">
             <Image
+              loading="lazy"
               src={WhyChooseUs}
               className='why-choose-us-image'
               alt="why-choose-us-image"
@@ -25,6 +26,7 @@ const WhyChooseUsSection = () => {
             />
           </Box>
           <Image
+            loading="lazy"
             src={Circle}
             alt="circle-image"
             className="circle-image"

@@ -17,6 +17,7 @@ const AboutUsSection = () => {
         <Box className="about-us-left-section">
           <Box className="image-container">
             <Image
+             loading="lazy"
               src={Rider2}
               className="about-us-image"
               alt="about-us-image"
@@ -27,6 +28,7 @@ const AboutUsSection = () => {
             />
           </Box>
           <Image
+           loading="lazy"
             src={Circle}
             alt="circle-image"
             className="circle-image"

@@ -15,7 +15,7 @@ import BaseButton from '../base-button'
 import TemporaryDrawer from '../drawer'
 import AppLogo from '../logo'
 import UnderlineAnimation from '../underline-animation'
-import actionLinks, { ActionLink } from './action-links'
+import actionLinks from './action-links'
 import './styles.scss'
 
 export const Header = () => {

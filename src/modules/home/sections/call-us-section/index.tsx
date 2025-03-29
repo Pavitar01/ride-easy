@@ -30,7 +30,7 @@ const CallUsSection = () => {
   return (
     <Box className="call-us-section">
       <Box className="bg-image">
-        <Image src={SCooter} alt="call-us-image" />
+        <Image loading="lazy" src={SCooter} alt="call-us-image" />
       </Box>
       <Container maxWidth="lg" className="container">
         <Typography
