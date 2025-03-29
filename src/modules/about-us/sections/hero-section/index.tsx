@@ -7,6 +7,7 @@ const HeroSection = () => {
   return (
     <Box className="about-us-hero-section">
       <Image
+        loading='lazy'
         className="bgimage"
         src={Bikers}
         alt="background-image"
@@ -17,10 +18,10 @@ const HeroSection = () => {
           width: "100vw",
           height: "100vh",
           objectFit: "cover",
-          zIndex: -1, 
+          zIndex: -1,
         }}
       />
-      
+
       <Box className="hero-section-wrapper">
         <Container maxWidth="lg" className="hero-section-container">
           <Typography

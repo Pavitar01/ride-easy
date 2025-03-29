@@ -14,6 +14,7 @@ const WhoWeAreSection = () => {
         <Box className="who-we-are-left-section">
           <Box className="image-container">
             <Image
+            loading="lazy"
               src={WhoWeAre}
               className='who-we-are-image'
               alt="who-we-are-image"
@@ -24,6 +25,7 @@ const WhoWeAreSection = () => {
             />
           </Box>
           <Image
+                  loading='lazy'
             src={Circle}
             alt="circle-image"
             className="circle-image"

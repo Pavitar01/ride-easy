@@ -9,7 +9,8 @@ interface BaseInputProps extends Omit<InputBaseProps, 'color'> {
   placeHolder?: string
   endAdornment?: JSX.Element
   rows?: number
-  multiline?: boolean
+  multiline?: boolean;
+  accept?: string
 }
 
 const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(

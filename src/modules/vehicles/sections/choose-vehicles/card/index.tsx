@@ -25,7 +25,7 @@ const VehicleCard = ({
   return (
     <Box className="vehicle-card-wrapper">
       <Box className="vehicle-image-container">
-        <Image src={image} alt={`${title}-image`} height={250} width={300} />
+        <Image loading="lazy" src={image} alt={`${title}-image`} height={250} width={300} />
       </Box>
       <Box className="vehicle-details">
         <Typography className="vehicle-name" component="p">

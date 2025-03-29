@@ -15,8 +15,9 @@ import BaseButton from '../base-button'
 import TemporaryDrawer from '../drawer'
 import AppLogo from '../logo'
 import UnderlineAnimation from '../underline-animation'
-import actionLinks, { ActionLink } from './action-links'
+import actionLinks from './action-links'
 import './styles.scss'
+import Link from 'next/link'
 
 export const Header = () => {
   const { push } = useRouter()
@@ -35,7 +36,7 @@ export const Header = () => {
   }
   const handleChooseItem = (page: ActionLink) => {
     if (user.id && page.name.includes('Login')) {
-      push('profile?userId=' + user.id)
+      push('/profile?userId=' + user.id)
     } else {
       setTransition(() => {
         push(page.path)
@@ -49,6 +50,9 @@ export const Header = () => {
     }
   }, [userId])
 
+  const navigateToBookingSection=()=>{
+    push("/vehicles#booking-section")
+  }
   return (
     <AppBar position="static" className="app-bar-wrapper" elevation={0}>
       <Container maxWidth="lg" className="container">
@@ -87,7 +91,7 @@ export const Header = () => {
               sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 4 }}
             >
               {actionLinks.map((page) => {
-                const isSelected = pathname === page.path
+                const isSelected = page.path === pathname || (pathname.includes("profile") && page.name.includes('Login') && user.id)
                 return (
                   <UnderlineAnimation
                     isSelected={isSelected}
@@ -100,9 +104,9 @@ export const Header = () => {
                 )
               })}
             </Box>
-            <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }}>
-              Rent now
-            </BaseButton>
+              <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }} onClick={navigateToBookingSection}>
+                Rent now
+              </BaseButton>
           </Box>
         </Toolbar>
       </Container>

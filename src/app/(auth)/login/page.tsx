@@ -74,14 +74,14 @@ const LoginPage = () => {
               required
             />
             <BaseButton
-              disabled={isLogging}
+              disabled={isLogging || Boolean(success)}
               type="submit"
               variant="contained"
               fullWidth
               sx={{ mt: 2, py: 1.5, fontSize: '16px' }}
             >
               {isLogging && <CircularProgress size={18} color="inherit" />}
-              &nbsp;Sign in
+              &nbsp;{success ? "Link Sent" : "Sign in"}
             </BaseButton>
           </form>
         </Grid>
@@ -93,6 +93,7 @@ const LoginPage = () => {
           sx={{ display: { xs: 'none', md: 'block' }, textAlign: 'center' }}
         >
           <Image
+            loading='lazy'
             className="auth-illustration"
             src={'/auth-illustration.jpg'}
             alt="Auth Illustration"

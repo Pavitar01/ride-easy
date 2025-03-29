@@ -60,6 +60,7 @@ const HeroSection = () => {
             display={{ xs: 'none !important', md: 'flex !important' }}
           >
             <Image
+              loading="lazy"
               src={RiderCouples1}
               alt="rider-image"
               className="rider-image"
@@ -67,6 +68,7 @@ const HeroSection = () => {
               height={624}
             />
             <Image
+              loading="lazy"
               src={Circle}
               alt="circle-image"
               className="circle-image"

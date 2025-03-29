@@ -1,0 +1,14 @@
+.editing-page-wrapper {
+  .title {
+    font-size: var(--global-regular-font-size-alt);
+    font-family: var(--global-font-kumbh);
+    color: var(--global-color-secondary);
+    font-weight: var(--global-bold-font);
+    line-height: var(--global-line-height);
+    margin-bottom: 5px;
+  }
+}
+#upload-button {
+  color: 'var(--global-color-accent)'  !important;
+  border-color: 'var(--global-color-accent)'  !important;
+}

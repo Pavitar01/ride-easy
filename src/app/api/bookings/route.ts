@@ -12,7 +12,6 @@ const account = new Account(client)
 export const POST = async (req: Request) => {
   try {
     const formData = await req.formData()
-    console.log([...formData.entries()])
     const full_name = formData.get('fullName') as string
     const email = formData.get('email') as string
     const phone = formData.get('phone') as string

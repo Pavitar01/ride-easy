@@ -1,7 +1,4 @@
-interface ActionLink {
-  path: string
-  name: string
-}
+
 
 const actionLinks: ActionLink[] = [
   { path: '/home', name: 'Home' },
@@ -11,5 +8,4 @@ const actionLinks: ActionLink[] = [
   { path: '/login', name: 'Login' },
 ]
 
-export type { ActionLink }
 export default actionLinks

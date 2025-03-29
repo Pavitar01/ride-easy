@@ -20,7 +20,6 @@ const account = new Account(client)
 export const POST = async (req: Request) => {
   try {
     const formData = await req.formData()
-    console.log([...formData.entries()])
     const name = formData.get('name') as string
     const price = Number(formData.get('price'))
     const transmission = formData.get('transmission') as string
@@ -86,11 +85,6 @@ export const POST = async (req: Request) => {
 }
 
 export const GET = async (req: Request) => {
-  console.log(
-    process.env.APPWRITE_DATABASE_ID as string,
-    process.env.APPWRITE_VEHICLES_COLLECTION_ID as string,
-    'hellllllo'
-  )
   try {
     const response = await databases.listDocuments(
       process.env.APPWRITE_DATABASE_ID as string,
