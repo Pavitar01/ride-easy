@@ -8,7 +8,7 @@ type Profile = {
   role:string;
   bio: string;
   tags: string[];
-  age: string;
+  age: number;
   experience: string;
   address: string;
   phone: string;

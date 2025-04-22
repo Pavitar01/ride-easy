@@ -1,5 +1,5 @@
 'use client';
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import {
     Avatar,
     Box,
@@ -19,23 +19,41 @@ import Link from "next/link";
 import { BaseInput } from "@/shared/ui/base-input";
 import BaseButton from "@/shared/ui/base-button";
 import "./styles.scss"
+import { useDetails } from "@/modules/profile/hooks/useDetails";
 
 export default function EditProfile() {
     const isPadView = useMediaQuery("max-width:600px");
+    const { user, isLoading } = useDetails();
     const [skillInput, setSkillInput] = useState("");
     const [profile, setProfile] = useState<Profile>({
-        firstName: "Pavitar",
-        lastName: "Singh",
-        role: "Customer",
+        firstName: "",
+        lastName: "",
+        role: "",
         bio: "Full stack product designer with hands-on experience in creating intuitive solutions.",
-        tags: ["UI/UX", "Adobe XD", "Mobile Apps", "User Research", "Wireframing"],
-        age: "100 years",
-        experience: "100 years",
-        address: "Ahmedabad, Gujarat",
-        phone: "+91 98123 56579",
-        email: "pavitarsingh03@gmail.com",
+        tags: [],
+        age: 0,
+        experience: "",
+        address: "",
+        phone: "",
+        email: "",
         govId: null
     });
+
+    useEffect(() => {
+        setProfile({
+            firstName: user?.details?.name.split(' ')[0],
+            lastName: user?.details?.name.split(' ')[1],
+            role: user?.details?.role,
+            bio: user?.details?.description ?? "",
+            tags: user?.details?.skills,
+            age: user?.details?.age ?? 18,
+            experience: "100 years",
+            address: user?.details?.address ?? "",
+            phone: user?.details?.phone ?? "",
+            email: user?.details?.email ?? "",
+            govId: null
+        });
+    }, [user])
 
     const handleSkillKeyDown = (e: any) => {
         if (e.key === "Enter" && skillInput.trim()) {
