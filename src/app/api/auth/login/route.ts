@@ -1,9 +1,17 @@
 import { Client, Account } from 'appwrite'
 import { NextResponse } from 'next/server'
 
+const endpoint = process.env.APPWRITE_ENDPOINT
+const projectId = process.env.APPWRITE_PROJECT_ID;
+const appUrl= process.env.NEXT_PUBLIC_APP_URL
+
+if (!endpoint || !projectId || !appUrl) {
+  throw new Error('Missing Appwrite configuration in environment variables')
+}
+
 const client = new Client()
-client.setEndpoint(process.env.APPWRITE_ENDPOINT!)
-client.setProject(process.env.APPWRITE_PROJECT_ID!)
+client.setEndpoint(endpoint)
+client.setProject(projectId)
 
 const account = new Account(client)
 
@@ -15,7 +23,7 @@ export const POST = async (req: Request) => {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 })
     }
 
-    const redirectUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/magic-link-callback`
+    const redirectUrl = `${appUrl}/api/auth/magic-link-callback`
     await account.createMagicURLToken('unique()', email, redirectUrl)
 
     return NextResponse.json({ message: 'Magic link sent to email' })

@@ -1,9 +1,15 @@
 import { Account, Client } from 'appwrite'
 import { NextResponse } from 'next/server'
+const endpoint = process.env.APPWRITE_ENDPOINT
+const projectId = process.env.APPWRITE_PROJECT_ID
+
+if (!endpoint || !projectId) {
+  throw new Error('Missing Appwrite configuration in environment variables')
+}
 
 const client = new Client()
-client.setEndpoint(process.env.APPWRITE_ENDPOINT!)
-client.setProject(process.env.APPWRITE_PROJECT_ID!)
+client.setEndpoint(endpoint)
+client.setProject(projectId)
 
 const account = new Account(client)
 
