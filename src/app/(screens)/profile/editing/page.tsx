@@ -18,8 +18,8 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import Link from "next/link";
 import { BaseInput } from "@/shared/ui/base-input";
 import BaseButton from "@/shared/ui/base-button";
-import "./styles.scss"
 import { useDetails } from "@/modules/profile/hooks/useDetails";
+import "./styles.scss"
 
 export default function EditProfile() {
     const isPadView = useMediaQuery("max-width:600px");

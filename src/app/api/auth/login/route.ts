@@ -1,8 +1,8 @@
 import { Client, Account } from 'appwrite'
 import { NextResponse } from 'next/server'
 
-const endpoint = process.env.APPWRITE_ENDPOINT
-const projectId = process.env.APPWRITE_PROJECT_ID;
+const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT
+const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
 const appUrl= process.env.NEXT_PUBLIC_APP_URL
 
 if (!endpoint || !projectId || !appUrl) {

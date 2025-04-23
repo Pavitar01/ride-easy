@@ -1,0 +1,10 @@
+import { Client, Users } from "node-appwrite";
+
+const client = new Client();
+
+client
+    .setEndpoint(process.env.APPWRITE_ENDPOINT as string)
+    .setProject(process.env.APPWRITE_PROJECT_ID as string)
+    .setKey(process.env.APPWRITE_API_KEY as string)
+
+export const users = new Users(client);

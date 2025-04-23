@@ -1,7 +1,7 @@
 import { Account, Client } from 'appwrite'
 import { NextResponse } from 'next/server'
-const endpoint = process.env.APPWRITE_ENDPOINT
-const projectId = process.env.APPWRITE_PROJECT_ID
+const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT
+const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID
 
 if (!endpoint || !projectId) {
   throw new Error('Missing Appwrite configuration in environment variables')

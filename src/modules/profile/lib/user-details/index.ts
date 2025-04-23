@@ -5,7 +5,6 @@ const databases = new Databases(client)
 
 export const getFilteredUserDetails = async () => {
     try {
-        console.log(process.env.APPWRITE_DATABASE_ID,'ddddddd')
         const databaseId = process.env.APPWRITE_DATABASE_ID!;
         const collectionId = process.env.USER_PROFILE_COLLECTION!;
         const response = await databases.listDocuments(databaseId, collectionId);

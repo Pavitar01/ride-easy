@@ -2,8 +2,8 @@ import { Client, Databases, ID, Account, Storage } from 'appwrite'
 import { NextResponse } from 'next/server'
 
 const client = new Client()
-  .setEndpoint(process.env.APPWRITE_ENDPOINT as string)
-  .setProject(process.env.APPWRITE_PROJECT_ID as string)
+  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT as string)
+  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID as string)
 
 const databases = new Databases(client)
 const storage = new Storage(client)

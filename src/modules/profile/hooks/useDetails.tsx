@@ -47,8 +47,6 @@ export const useDetails = () => {
     })
     const client = new Client()
     const account = new Account(client);
-    const databases = new Databases(client)
-
     useEffect(() => {
         (async () => {
             if (isLoading) {
@@ -58,7 +56,6 @@ export const useDetails = () => {
             try {
                 const session = await account.getSession('current');
                 const currentUser = await account.get();
-                console.log(session,'hellllo')
                 setUser({
                     details: {
                         ...user.details,
