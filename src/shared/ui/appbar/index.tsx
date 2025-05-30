@@ -11,13 +11,12 @@ import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
 import { login } from '@/modules/auth/store/authSlice'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import BaseButton from '../base-button'
 import TemporaryDrawer from '../drawer'
 import AppLogo from '../logo'
 import UnderlineAnimation from '../underline-animation'
 import actionLinks from './action-links'
+import Locations from '@/modules/home/components/state-selector'
 import './styles.scss'
-import Link from 'next/link'
 
 export const Header = () => {
   const { push } = useRouter()
@@ -50,9 +49,6 @@ export const Header = () => {
     }
   }, [userId])
 
-  const navigateToBookingSection=()=>{
-    push("/vehicles#booking-section")
-  }
   return (
     <AppBar position="static" className="app-bar-wrapper" elevation={0}>
       <Container maxWidth="lg" className="container">
@@ -68,6 +64,7 @@ export const Header = () => {
             <AppLogo sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <Locations />
             <IconButton
               size="large"
               aria-controls="menu-appbar"
@@ -103,11 +100,10 @@ export const Header = () => {
                   />
                 )
               })}
+              <Locations />
             </Box>
-              <BaseButton sx={{ display: { xs: 'none', md: 'flex' } }} onClick={navigateToBookingSection}>
-                Rent now
-              </BaseButton>
           </Box>
+
         </Toolbar>
       </Container>
       <TemporaryDrawer isOpen={isOpen} onClose={handleChooseItem} />

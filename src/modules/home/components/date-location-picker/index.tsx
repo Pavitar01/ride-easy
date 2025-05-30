@@ -16,7 +16,10 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
 import BaseButton from '@/shared/ui/base-button'
+import { TanStackVirtualAutocomplete } from '@/shared/ui/auto-complete'
 import './styles.scss'
+import { states } from '@/utils/states'
+import { citiesGroupedByState } from '@/utils/cities'
 
 const DateLocationPicker = () => {
   const { push } = useRouter()
@@ -92,8 +95,11 @@ const Input = ({ title, type, value, onChange }: InputProps) => {
               <MenuItem value="" disabled>
                 Select Location
               </MenuItem>
-              <MenuItem value="67e1ad68001c878ec0f5">Dehradun</MenuItem>
-              <MenuItem value="67e1ad5700275d11cc9a">Mussorie</MenuItem>
+              {
+                citiesGroupedByState['PB'].map((city, index) => {
+                  return <MenuItem value={city.wikiDataId}>{city.name}</MenuItem>
+                })
+              }
             </Select>
           </FormControl>
         ) : (

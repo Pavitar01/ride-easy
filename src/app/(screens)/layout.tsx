@@ -22,7 +22,7 @@ const ProtectedLayout = ({ children }: { children: ReactNode }) => {
       <PublicEnvProvider>
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
         <ToastContainer />
       </PublicEnvProvider>
     </Box>

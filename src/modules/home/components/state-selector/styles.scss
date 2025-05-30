@@ -1,0 +1,21 @@
+.state-selector-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: var(--global-font-kumbh);
+    margin-top: 5px !important;
+    color:var(--global-color-accent-hover) !important;
+    p {
+        color: var(--global-color-secondary) !important;
+        text-transform: none;
+    }
+
+    &:hover {
+        background-color: var(--color-background-hover);
+        box-shadow: var(--box-shadow-hover);
+    }
+}
